@@ -23,7 +23,6 @@ Feature: Graph Data Structure Navigation
  
   Background:
     Given the user signs in to dsAlgo Portal
-
 	
   Scenario: Verify that user is able to navigate to the "Graph" data structure page
     Given the user is on the Home page after signing in
@@ -36,7 +35,6 @@ Feature: Graph Data Structure Navigation
     When the user clicks the "Graph" link
     Then the user navigates to the "Graph page"
 
-
   
 
   Scenario: Verify that the user can navigate to the "Try Editor" page for the "Graph" page
@@ -45,23 +43,27 @@ Feature: Graph Data Structure Navigation
     Then the user should be redirected to a page having a try Editor with a Run button to test
 
 
-  Scenario: Verify that user receives error when clicking on Run button without entering code for "Graph" page
-    Given the user is in the tryEditor page
-    When the user clicks the "Run" button without entering code from  Excel file "<filePath>" and sheet "<sheetName>" 
-    Then the user should be able to see an error message in an alert window
+	Scenario Outline: Output Testing with different sets of invalid data in Graph page
+     Given The user is in the tryEditor page
+     When The user clicks the Run button after entering <RowNumber> from  "<SheetName>"
+     Then The user should able to see an error message in alert window
+     
+       Examples: 
+      | SheetName  | RowNumber |
+
+      | TryEditor |     2 | 
+      | TryEditor |     3 | 
+      
+  Scenario Outline: Output Testing with different sets of valid data in Graph Page
+     Given The user is in the tryEditor page
+     When The user clicks the Run button after entering <RowNumber> from  "<SheetName>"
+     Then The user should able to see output in the console
+     
+       Examples: 
+      | SheetName  | RowNumber |
+      | TryEditor |     4 | 
 
  
-  Scenario: Verify that user receives an alert for invalid python code for "Graph" page
-    Given the user is in tryEditor page
-    When the user clicks the "Run" button with invalid python code data from Excel file "<filePath>" and sheet "<sheetName>" 
-    Then the user should be able to see an error message on alert window
-
-
-  Scenario: Verify that user is able to see output for valid python code for "Graph" page
-    Given the user is in tryEditor page
-    When the user clicks the Run button with valid python code data from  Excel file "<filePath>" and sheet "<sheetName>" 
-    Then the user should be able to see output in the console
-
   Scenario: Verify that the user should be back to Graph page
     Given the user is on the "Tryeditor" of Graph page
     When the user clicks on the "Back" arrow on top
@@ -79,23 +81,27 @@ Feature: Graph Data Structure Navigation
     When the user clicks the "Try here" button
     Then the user should be redirected to a page having a try Editor with a Run button to test
 
+ 	Scenario Outline: Output Testing with different sets of invalid data in Graph Representations page
+     Given The user is in the tryEditor page
+     When The user clicks the Run button after entering <RowNumber> from  "<SheetName>"
+     Then The user should able to see an error message in alert window
+     
+       Examples: 
+      | SheetName  | RowNumber |
+
+      | TryEditor |     2 | 
+      | TryEditor |     3 | 
+      
+  Scenario Outline: Output Testing with different sets of valid data in Graph Representations page
+     Given The user is in the tryEditor page
+     When The user clicks the Run button after entering <RowNumber> from  "<SheetName>"
+     Then The user should able to see output in the console
+     
+       Examples: 
+      | SheetName  | RowNumber |
+      | TryEditor |     4			 | 
  
-  Scenario: Verify that user receives error when clicking on Run button without entering code for "Graph Representations" page
-    Given the user is in the tryEditor page
-    When the user clicks the "Run" button without entering code in the Editor
-    Then the user should be able to see an error message in an alert window
-
-
-  Scenario: Verify that user receives an alert for invalid python code for "Graph" page
-    Given the user is in tryEditor page
-    When the user clicks the "Run" button with invalid python code
-    Then the user should be able to see an error message in alert window
-
-  Scenario: Verify that user is able to see output for valid python code for "Graph Representations" page
-    Given the user is in tryEditor page
-    When the user clicks the Run button with "valid python code"
-    Then the user should be able to see output in the console
- 
+   
  	Scenario: Verify that the user can navigate back to the "Graph Representations" page
 	  Given the user is on the "Tryeditor" of the "Graph Representations" page
 	  When the user clicks on the "Back" arrow at the top
@@ -103,7 +109,13 @@ Feature: Graph Data Structure Navigation
 	  
 	  
   Scenario: Verify that the user can navigate to the "Practice Questions" page of "Graph" page
-    Given the user is in the "Graph" page
+    Given the user is in "Graph" page
     When the user clicks the "Practice Questions" link
     Then the user should be redirected to the "Practice Questions" page
+    
+  Scenario: Verify that the user can navigate back to the "Graph" page
+    Given the user is in  "practice questions" page
+    When the user clicks on the "Back" arrow at the top
+    Then the user should be redirected to the "Graph" page
+ 
  

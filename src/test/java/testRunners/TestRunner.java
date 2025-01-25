@@ -1,4 +1,4 @@
-package testRunner;
+package testRunners;
 
 public class TestRunner {
 
