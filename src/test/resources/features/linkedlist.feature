@@ -1,27 +1,24 @@
 
-#linkedlist
+@linkedlist
 Feature: Linked List
  Background :The user sign in to dsAlgo Portal
 
  
   Scenario: Verify that user is able to navigate to "Linked List" data structure page 
     Given The user is in the Home page after Sign in
-    When The user clicks the "Getting Started" button in Linked List
+    When The user clicks the Getting Started button in the Linked List panel Or The user selects the Linked List from the drop-down menu
     Then The user be directed to "Linked List" Data Structure Page
-    
-
+ 
   Scenario: Verify that user is able to navigate to "Introduction" page
     Given The user clicks "Introduction in Linked List" HyperLink
     When  The user should be redirected to "Introduction in Linked List" page 
     Then  The user  be redirected to "Introduction in Linked List" page
-  
-  
+    
   Scenario: Verify that user is able to navigate to "try Editor" page for "Introduction" page
     Given The user is on the "Introduction" page
     When   The user clicks "Try Here" button in Introduction page
     Then   The user should be redirected to a page having an try Editor with a Run button to test
-  
-  
+    
   Scenario Outline: Verify that user receives error when click on Run button with different set of invalid data for "Introduction" page
     Given The user is in the tryEditor page
      When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
