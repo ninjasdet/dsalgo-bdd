@@ -6,6 +6,7 @@ import io.cucumber.java.en.When;
 
 public class TreeStepDefinition {
 
+CommonStepDefinitions commonMethod=new CommonStepDefinitions();
 
 @Given("the user signs into dsAlgo Portal")
 public void the_user_signs_into_ds_algo_portal() {
@@ -53,10 +54,11 @@ public void the_user_is_directed_to_page(String string) {
 
 //Scenario: Verify that user is able to navigate to TryEditor page for "Overview of Trees"
 
-@Given("The user is in the {string} page")
-public void the_user_is_in_the_page(String string) {
+//manually created
+public void userPage(String string) {
 	// Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    commonMethod.the_user_is_in_the_page(string);
+    
 }
 
 @When("The user clicks {string} button in Overview of Trees page")
@@ -65,10 +67,6 @@ public void the_user_clicks_button_in_overview_of_trees_page(String string) {
     throw new io.cucumber.java.PendingException();
 }
 
-//@Then("The user should be redirected to a page having a try Editor with a Run button.")
-//public void the_user_should_be_redirected_to_a_page_having_a_try_editor_with_a_run_button() {
-//    
-//}
 // Verify that user should receives error when click on run button without entering code for"Overview of Trees" 
 @Given("The user is in {string} page of {string}")
 public void the_user_is_in_page_of(String string, String string2) {
@@ -108,11 +106,11 @@ public void the_user_clicks_the_button_with_entering_the_valid_code_in_the_edito
 	// Write code here that turns the phrase above into concrete actions
     throw new io.cucumber.java.PendingException();
 }
+//manual method creation
 
-@Then("The user should able to see output in the console")
-public void the_user_should_able_to_see_output_in_the_console() {
+public void treeoutput_console() {
 	// Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+	commonMethod.the_user_should_able_to_see_output_in_the_console();
 }
 
 // Scenario: Verify that the user shoud be back to Overview of Trees
@@ -122,22 +120,22 @@ public void the_user_is_on_the_overview_of_trees_page(String string) {
     throw new io.cucumber.java.PendingException();
 }
 
-@When("The user click on the {string} arrow on top")
-public void the_user_click_on_the_arrow_on_top(String string) {
+//manually created method for tree
+public void clickBackArrow(String string) {
 	// Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    commonMethod.the_user_click_on_the_arrow_on_top(string);
 }
 
-@Then("The user should be redirected to {string} page")
-public void the_user_should_be_redirected_to_page(String string) {
+//manuall
+public void theuserRedirected(String string) {
 	// Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    commonMethod.the_user_should_be_redirected_to_page(string);
 }
 
-@Then("The user should be redirected to a page having a try Editor with a Run button")
-public void the_user_should_be_redirected_to_a_page_having_a_try_editor_with_a_run_button() {
+//manually created
+public void redirectpage() {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+	commonMethod.the_user_should_be_redirected_to_a_page_having_a_try_editor_with_a_run_button_to_test();
 }
 
 @When("The user clicks {string} button in Terminologies page")
@@ -164,10 +162,10 @@ public void the_user_clicks_button_in_types_of_trees_page(String string) {
     throw new io.cucumber.java.PendingException();
 }
 
-@When("The user clicks the Run button after entering <RowNumber> from  {string}")
-public void the_user_clicks_the_run_button_after_entering_row_number_from(String string) {
+//manual creation
+public void userclicksRunbutton(Integer int1, String string) {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    commonMethod.the_user_clicks_the_run_button_after_entering_from(int1, string);
 }
 
 @Given("The user is on the {string} Types of Trees")
@@ -295,5 +293,71 @@ public void the_user_is_on_the_implementation_of_bst(String string) {
     // Write code here that turns the phrase above into concrete actions
     throw new io.cucumber.java.PendingException();
 }
+
+@Then("The user should be redirected to a page having a try Editor with a Run button")
+public void the_user_should_be_redirected_to_a_page_having_a_try_editor_with_a_run_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+//manuall
+public void userinTryEditor() {
+    // Write code here that turns the phrase above into concrete actions
+    commonMethod.the_user_is_in_the_try_editor_page();
+}
+
+@Then("The user should be redirected to a {string} page")
+public void the_user_should_be_redirected_to_a_page(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+@Then("The user should  redirected to  {string} page")
+public void the_user_should_redirected_to_page(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+@Then("The user should be redirected to the {string} of tree page")
+public void the_user_should_be_redirected_to_the_of_tree_page(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+@Then("The user should be redirected a {string} page")
+public void the_user_should_be_redirected_a_page(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+//manuall
+public void theuserclicksRun(Integer int1, String string) {
+    // Write code here that turns the phrase above into concrete actions
+    commonMethod.the_user_clicks_the_run_button_after_entering_from(int1, string);
+}
+
+@Given("The user is in the tryEditor page of Tree")
+public void the_user_is_in_the_try_editor_page_of_tree() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+//manuall
+public void userclicksRun(Integer int1, String string) {
+    // Write code here that turns the phrase above into concrete actions
+   commonMethod.the_user_clicks_the_run_button_after_entering_from(int1, string);
+}
+
+//manuall
+public void userinTreepage(String string) {
+	// Write code here that turns the phrase above into concrete actions
+	commonMethod.the_user_is_in_the_page(string);
+}
+
+//manuall
+public void clicksRunbutton(Integer int1, String string) {
+	// Write code here that turns the phrase above into concrete actions
+	commonMethod.the_user_clicks_the_run_button_after_entering_from(int1, string);
+}
+
 
 }

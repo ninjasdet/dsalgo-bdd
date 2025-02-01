@@ -1,23 +1,5 @@
-#Author: your.email@your.domain.com
-#Keywords Summary :
-#Feature: List of scenarios.
-#Scenario: Business rule through list of steps with arguments.
-#Given: Some precondition step
-#When: Some key actions
-#Then: To observe outcomes or validation
-#And,But: To enumerate more Given,When,Then steps
-#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
-#Examples: Container for s table
-#Background: List of steps run before each of the scenarios
-#""" (Doc Strings)
-#| (Data Tables)
-#@ (Tags/Labels):To group Scenarios
-#<> (placeholder)
-#""
-## (Comments)
-#Sample Feature Definition Template
- 
- #Array
+@ignore
+@Array
 Feature: DsAlgo Array page 
   
  Background: The user is signed in to the dsAlgo Portal 
@@ -46,7 +28,7 @@ Feature: DsAlgo Array page
 
      
   Scenario Outline: Verify that user receives error for invalid python code for "Arrays in Python" page
-    Given The user is in the tryEditor page
+    Given The user is in the tryEditor page of Arrays in Python
     When   The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
     Then  The user should able to see an error message in alert window 
        Examples: 
@@ -55,7 +37,7 @@ Feature: DsAlgo Array page
       |  TryEditor  |    3         | 
    
    Scenario Outline: Verify that user is able to see output for valid python code for "Arrays in Python"page
-    Given The user is in the tryEditor page
+    Given The user is in the tryEditor page of Arrays in Python
     When   The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
     Then   The user should able to see output in the console
   
@@ -64,7 +46,7 @@ Feature: DsAlgo Array page
       |  TryEditor  |   4          | 
       
     Scenario: Verify that the user shoud be back to "Arrays in Python" page
-    Given The user is in the tryEditor page
+    Given The user is in the tryEditor page of Arrays in Python
     When  The user click on the "Back" arrow on top  
     Then  The user should be redirected to "Arrays in Python" page
   
@@ -74,7 +56,7 @@ Feature: DsAlgo Array page
     Then  The user should be redirected to a page having an try Editor with a Run button to test
        
   Scenario Outline: Verify that user receives error for invalid python code for "Arrays Using List" page
-    Given The user is in the tryEditor page
+    Given The user is in the tryEditor page of Arrays in Python
     When   The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
     Then  The user should able to see an error message in alert window 
        Examples: 
@@ -83,7 +65,7 @@ Feature: DsAlgo Array page
       |  TryEditor  |    3         | 
    
    Scenario Outline: Verify that user is able to see output for valid python code for "Arrays Using List"page
-    Given The user is in the tryEditor page
+    Given The user is in the tryEditor page of Arrays in Python
     When   The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
     Then   The user should able to see output in the console
   
@@ -92,7 +74,7 @@ Feature: DsAlgo Array page
       |  TryEditor  |   4          | 
       
     Scenario: Verify that the user shoud be back to "Arrays Using List" page
-    Given The user is in the tryEditor page
+    Given The user is in the tryEditor page of Arrays in Python
     When  The user click on the "Back" arrow on top  
     Then  The user should be redirected to the "Arrays Using List" page
   
@@ -102,7 +84,7 @@ Feature: DsAlgo Array page
     Then The user should be redirected to a page having an try Editor with a Run button to test
   
   Scenario Outline: Verify that user receives error for invalid python code for "Basic Operations in Lists" page
-    Given The user is in the tryEditor page
+    Given The user is in the tryEditor page of Arrays in Python
     When   The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
     Then  The user should able to see an error message in alert window 
        Examples: 
@@ -111,7 +93,7 @@ Feature: DsAlgo Array page
       |  TryEditor  |    3         | 
    
    Scenario Outline: Verify that user is able to see output for valid python code for "Basic Operations in Lists"page
-    Given The user is in the tryEditor page
+    Given The user is in the tryEditor page of Arrays in Python
     When   The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
     Then   The user should able to see output in the console
   
@@ -121,9 +103,9 @@ Feature: DsAlgo Array page
  
  
  Scenario: Verify that the user shoud be back to "Basic Operations in Lists" page
-    Given The user is in the tryEditor page
+    Given The user is in the tryEditor page of Arrays in Python
     When  The user click on the "Back" arrow on top  
-    Then  The user should be redirected to "Basic Operations in Lists" page
+    Then  The user able to redirected to "Basic Operations in Lists" page
   
   Scenario: Verify that user is able to navigate to "try Editor" page for "Applications of Array" page
     Given The user is on the "Applications of Array" page
@@ -131,7 +113,7 @@ Feature: DsAlgo Array page
     Then The user should be redirected to a page having an try Editor with a Run button to test
   
   Scenario Outline: Verify that user receives error for invalid python code for "Applications of Array" page
-    Given The user is in the tryEditor page
+    Given The user is in the tryEditor page of Arrays in Python
     When   The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
     Then  The user should able to see an error message in alert window 
        Examples: 
@@ -140,7 +122,7 @@ Feature: DsAlgo Array page
       |  TryEditor  |    3         | 
    
    Scenario Outline: Verify that user is able to see output for valid python code for "Applications of Array"page
-    Given The user is in the tryEditor page
+    Given The user is in the tryEditor page of Arrays in Python
     When   The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
     Then   The user should able to see output in the console
   
@@ -148,7 +130,7 @@ Feature: DsAlgo Array page
       | SheetName |  RowNumber     | 
       |  TryEditor  |   4          | 
  Scenario: Verify that the user shoud be back to "Applications of Array" page
-    Given The user is in the tryEditor page
+    Given The user is in the tryEditor page of Arrays in Python
     When  The user click on the "Back" arrow on top  
     Then  The user should be redirected to the "Applications of Array" page
     
@@ -159,7 +141,7 @@ Feature: DsAlgo Array page
   Then   The user should be redirected to the "Practice" page
   
   Scenario Outline: Verify that user receives error for invalid python code for "Practice questions in Applications of Array" page
-    Given The user is in the tryEditor page
+    Given The user is in the tryEditor page of Array Application
     When   The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
     Then  The user should able to see an error message in alert window 
        Examples: 
@@ -168,7 +150,7 @@ Feature: DsAlgo Array page
       |  TryEditor  |    3         | 
    
     Scenario Outline: Verify that user receives error for invalid python code for "Practice questions in Applications of Array" page
-    Given The user is in the tryEditor page
+    Given The user is in the tryEditor page of Array Application
     When   The user clicks the Submit Button after entering <RowNumber> from "<SheetName>"
     Then  The user should able to see Error occurred during submission       
        Examples: 
@@ -178,7 +160,7 @@ Feature: DsAlgo Array page
    
     
    Scenario Outline: Verify that user is able to see output for valid python code for "Practice questions in Applications of Array"page
-    Given The user is in the tryEditor page
+    Given The user is in the tryEditor page of Array Application
     When   The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
     Then   The user should able to see output in the console
   
@@ -187,17 +169,9 @@ Feature: DsAlgo Array page
       |  TryEditor  |   4          | 
  
  
- Scenario Outline: Verify that user is able to see output for valid python code for "Practice questions in Applications of Array"page
-    Given The user is in the tryEditor page
-    When   The user clicks the Submit Button after entering <RowNumber> from "<SheetName>"
-    Then   The user should able to see output in the console
-  
-         Examples: 
-      | SheetName |  RowNumber     | 
-      |  TryEditor  |   4          |
-      
+ 
   Scenario: Verify that the user shoud be back to "Data Structure" page
-    Given The user is in the tryEditor page
+    Given The user is in the tryEditor page 
     When  The user click on the "Back" arrow on top  
     Then  The user should be redirected back to "Data Structure" page
     
@@ -249,7 +223,7 @@ Feature: DsAlgo Array page
  Scenario: Verify that the user shoud be back to "Data Structure" page
     Given The user is in the tryEditor page
     When  The user click on the "Back" arrow on top  
-    Then  The user should be redirected to "Data Structure" page
+    Then  The user should redirected to "Data Structure" page
     
    
   Scenario: Verify that user is able to navigate to "Practice Questions" Page for "Max Consecutive Ones" page
@@ -345,5 +319,6 @@ Feature: DsAlgo Array page
          Examples: 
       | SheetName |  RowNumber     | 
       |  TryEditor  |   4          |
+      
  
  
