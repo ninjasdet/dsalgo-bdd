@@ -1,14 +1,9 @@
 @Stackpage
-Feature: Home Navigation
-Background: The user sign in to dsAlgo Portal and click on Get started button
-  As a user of the DS Algo portal,
-  I want to navigate to different data structure pages,
-  So that I can explore their functionalities.
+Feature: Stack Data Structure Navigation
 
-  Background: User signs in and accesses the home page
-    Given The user signs in to the DS Algo portal
-    And The user clicks on the Get Started button
-
+ Background:
+    Given the user signs in to dsAlgo Portal
+    
   Scenario: Verify that user is able to navigate to Stack data structure page
     Given The user is on the Home page after signing in
     When The user clicks the Getting Started button in the Stack Panel Or The user selects the Stack item from the drop-down menu
@@ -25,19 +20,18 @@ Scenario: Verify that user is able to navigate to Operations in Stack page
     Then The user should be redirected to a page having a try Editor with a Run button to test
     
     Scenario Outline: Output Testing with different sets of invalid data in Operations in Stack page
-     Given The user is in the tryEditor page
-     When The user clicks the Run button after entering <RowNumber> from  "<SheetName>"
-     Then The user should able to see an error message in alert window
+     Given The user is in the tryEditor page of Stack
+     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
+     Then The user should able to see an error message in alert window of Stack page
      
        Examples: 
-      | SheetName  | RowNumber |
-
-      | TryEditor |     1 | 
-      | TryEditor |     2 | 
+      | SheetName     | RowNumber |
+      | TryEditor     |     1 		| 
+      | TryEditor     |     2 		| 
       
    Scenario Outline: Output Testing with different sets of valid data Operations in Stack page
-     Given The user is in the tryEditor page
-     When The user clicks the Run button after entering <RowNumber> from  "<SheetName>"
+     Given The user is in the tryEditor page of Stack
+     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see output in the console
      
        Examples: 
@@ -61,7 +55,7 @@ Scenario: Verify that user is able to navigate to Operations in Stack page
     
      Scenario Outline: Output Testing with different sets of invalid data in Implementation page
      Given The user is in the tryEditor page
-     When The user clicks the Run button after entering <RowNumber> from  "<SheetName>"
+     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see an error message in alert window
      
        Examples: 
@@ -72,7 +66,7 @@ Scenario: Verify that user is able to navigate to Operations in Stack page
       
    Scenario Outline: Output Testing with different sets of valid data in Implementation page
      Given The user is in the tryEditor page
-     When The user clicks the Run button after entering <RowNumber> from  "<SheetName>"
+     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
      Then TThe user should able to see output in the console
      
        Examples: 
@@ -96,7 +90,7 @@ Scenario: Verify that user is able to navigate to Operations in Stack page
     
      Scenario Outline: Output Testing with different sets of invalid data in Applications page
      Given The user is in the tryEditor page
-     When The user clicks the Run button after entering <RowNumber> from  "<SheetName>"
+     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see an error message in alert window
      
        Examples: 
@@ -107,7 +101,7 @@ Scenario: Verify that user is able to navigate to Operations in Stack page
       
    Scenario Outline: Output Testing with different sets of valid data in Applications page
      Given The user is in the tryEditor page
-     When The user clicks the Run button after entering <RowNumber> from  "<SheetName>"
+     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
      Then TThe user should able to see output in the console
      
        Examples: 

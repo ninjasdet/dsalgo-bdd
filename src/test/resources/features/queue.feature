@@ -5,14 +5,13 @@ Feature: Home Navigation
   I want to navigate to different data structure pages,
   So that I can explore their functionalities.
 
-  Background: User signs in and accesses the home page
-    Given The user signs in to the DS Algo portal
-    And The user clicks on the Get Started button
+  Background:
+    Given the user signs in to dsAlgo Portal
 
   Scenario: Verify that user is able to navigate to Queue data structure page
-    Given The user is on the Home page after signing in
+    Given The user is in the Home page after Sign in
     When The user clicks the Getting Started button in the Queue Panel Or The user selects the Queue item from the drop-down menu
-    Then The user is directed to the Stack Data Structure Page
+    Then The user is directed to the Queue Data Structure Page
     
 Scenario: Verify that user is able to navigate to Implementation of Queue in Python page
     Given The user is in the Queue page after Sign in
@@ -26,7 +25,7 @@ Scenario: Verify that user is able to navigate to Implementation of Queue in Pyt
     
     Scenario Outline: Output Testing with different sets of invalid data in Implementation of Queue in Python
      Given The user is in the tryEditor page
-     When The user clicks the Run button after entering <RowNumber> from  "<SheetName>"
+     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see an error message in alert window
      
        Examples: 
@@ -37,7 +36,7 @@ Scenario: Verify that user is able to navigate to Implementation of Queue in Pyt
       
    Scenario Outline: Output Testing with different sets of valid data Implementation of Queue in Python
      Given The user is in the tryEditor page
-     When The user clicks the Run button after entering <RowNumber> from  "<SheetName>"
+     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
      Then TThe user should able to see output in the console
      
        Examples: 
@@ -46,7 +45,7 @@ Scenario: Verify that user is able to navigate to Implementation of Queue in Pyt
       
     Scenario: Verify that the user shoud be back to Implementation of Queue in Python page
     Given The user is on the Tryeditor of Implementation of Queue in Python page
-    When The user click on the Back arrow on top 
+    When the user clicks on the "Back" arrow at the top  
     Then The user should be redirected back to Implementation of Queue in Python page.
     
     Scenario: Verify that user is able to navigate to Implementation using collections.deque page
@@ -61,7 +60,7 @@ Scenario: Verify that user is able to navigate to Implementation of Queue in Pyt
     
      Scenario Outline: Output Testing with different sets of invalid data in Implementation using collections.deque page page
      Given The user is in the tryEditor page
-     When The user clicks the Run button after entering <RowNumber> from  "<SheetName>"
+     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see an error message in alert window
      
        Examples: 
@@ -72,7 +71,7 @@ Scenario: Verify that user is able to navigate to Implementation of Queue in Pyt
       
    Scenario Outline: Output Testing with different sets of valid data in Implementation using collections.deque page page
      Given The user is in the tryEditor page
-     When The user clicks the Run button after entering <RowNumber> from  "<SheetName>"
+     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
      Then TThe user should able to see output in the console
      
        Examples: 
@@ -81,7 +80,7 @@ Scenario: Verify that user is able to navigate to Implementation of Queue in Pyt
       
    Scenario: Verify that the user shoud be back to Implementation using collections.deque page 
     Given The user is on the Tryeditor of Implementation using collections.deque page 
-    When The user click on the Back arrow on top 
+    When the user clicks on the "Back" arrow at the top 
     Then The user should be redirected back to Implementation using collections.deque page 
     
       Scenario: Verify that user is able to navigate to Implementation using array page
@@ -96,7 +95,7 @@ Scenario: Verify that user is able to navigate to Implementation of Queue in Pyt
     
      Scenario Outline: Output Testing with different sets of invalid data in Implementation using array page
      Given The user is in the tryEditor page
-     When The user clicks the Run button after entering <RowNumber> from  "<SheetName>"
+     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see an error message in alert window
      
        Examples: 
@@ -107,7 +106,7 @@ Scenario: Verify that user is able to navigate to Implementation of Queue in Pyt
       
    Scenario Outline: Output Testing with different sets of valid data in Implementation using array page
      Given The user is in the tryEditor page
-     When The user clicks the Run button after entering <RowNumber> from  "<SheetName>"
+     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
      Then TThe user should able to see output in the console
      
        Examples: 
@@ -115,9 +114,9 @@ Scenario: Verify that user is able to navigate to Implementation of Queue in Pyt
       | TryEditor |     3 | 
      
       
-       Scenario: Verify that the user shoud be back to Implementation using array page
+   Scenario: Verify that the user shoud be back to Implementation using array page
     Given The user is on the Tryeditor of Implementation using array page 
-    When The user click on the Back arrow on top 
+    When the user clicks on the "Back" arrow at the top 
     Then The user should be redirected back to Implementation using array page . 
     
       Scenario: Verify that user is able to navigate to Queue Operations page
@@ -132,7 +131,7 @@ Scenario: Verify that user is able to navigate to Implementation of Queue in Pyt
     
      Scenario Outline: Output Testing with different sets of invalid data in Queue Operations page
      Given The user is in the tryEditor page
-     When The user clicks the Run button after entering <RowNumber> from  "<SheetName>"
+     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see an error message in alert window
      
        Examples: 
@@ -143,19 +142,20 @@ Scenario: Verify that user is able to navigate to Implementation of Queue in Pyt
       
    Scenario Outline: Output Testing with different sets of valid data in Queue Operations page
      Given The user is in the tryEditor page
-     When The user clicks the Run button after entering <RowNumber> from  "<SheetName>"
+     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
      Then TThe user should able to see output in the console
      
        Examples: 
       | SheetName  | RowNumber |
-      | TryEditor |     3 | 
+      | TryEditor |     3 		 | 
+      
    Scenario: Verify that the user shoud be back to Queue Operations page
     Given The user is on the Tryeditor of Queue Operations page
-    When The user click on the Back arrow on top 
-    Then The user should be redirected back to Queue Operations page. 
+    When the user clicks on the "Back" arrow at the top
+    Then The user should be redirected back to Queue Operations page 
        
     Scenario: Verify that user is able to navigate to Practice Questions Page for Implementation of Queue in Python page
     Given The user is in the Queue page
-    When The user clicks Practice Questions button
-    Then The user should be redirected to Practice page
+    When the user clicks the "Practice Questions" link
+    Then the user should be redirected to the "Practice Questions" page
     
