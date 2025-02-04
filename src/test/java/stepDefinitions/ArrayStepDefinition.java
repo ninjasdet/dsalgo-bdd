@@ -109,15 +109,15 @@ package stepDefinitions;
         throw new io.cucumber.java.PendingException();
     }
 
-    @Then("The user should able to see an error message in alert window")
-    public void the_user_should_able_to_see_an_error_message_in_alert_window() {
-        throw new io.cucumber.java.PendingException();
-    }
-
-    //manuall
-    public void theuserintryeditor() {
-        commonMethods.the_user_is_in_the_try_editor_page();
-    }
+//    @Then("The user should able to see an error message in alert window")
+//    public void the_user_should_able_to_see_an_error_message_in_alert_window() {
+//        throw new io.cucumber.java.PendingException();
+//    }
+//
+//    //manuall
+//    public void theuserintryeditor() {
+//        commonMethods.the_user_is_in_the_try_editor_page();
+//    }
 
     @Given("The user is in the tryEditor page of Arrays in Python")
     public void the_user_is_in_the_try_editor_page_of_arrays_in_python() {

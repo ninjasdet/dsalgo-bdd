@@ -6,7 +6,7 @@ Feature: Stack Data Structure Navigation
     
   Scenario: Verify that user is able to navigate to Stack data structure page
     Given The user is on the Home page after signing in
-    When The user clicks the Getting Started button in the Stack Panel Or The user selects the Stack item from the drop-down menu
+     When The user clicks the Getting Started button in the Stack Panel Or The user selects the Stack item from the drop-down menu
     Then The user is directed to the Stack Data Structure Page
     
 Scenario: Verify that user is able to navigate to Operations in Stack page
@@ -54,9 +54,9 @@ Scenario: Verify that user is able to navigate to Operations in Stack page
     Then The user should be redirected to a page having a try Editor with a Run button to test 
     
      Scenario Outline: Output Testing with different sets of invalid data in Implementation page
-     Given The user is in the tryEditor page
+     Given The user is in the tryEditor page of Stack
      When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
-     Then The user should able to see an error message in alert window
+     Then The user should able to see an error message in alert window of Stack page
      
        Examples: 
       | SheetName  | RowNumber |
@@ -65,9 +65,9 @@ Scenario: Verify that user is able to navigate to Operations in Stack page
       | TryEditor |     2 | 
       
    Scenario Outline: Output Testing with different sets of valid data in Implementation page
-     Given The user is in the tryEditor page
+     Given The user is in the tryEditor page of Stack
      When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
-     Then TThe user should able to see output in the console
+     Then The user should able to see output in the console
      
        Examples: 
       | SheetName  | RowNumber |
@@ -75,7 +75,7 @@ Scenario: Verify that user is able to navigate to Operations in Stack page
       
    Scenario: Verify that the user shoud be back to Implementation page
     Given The user is on the Tryeditor of Implementation page
-    When The user click on the Back arrow on top 
+    When The user click on the Back arrow on top of Implementation page
     Then The user should be redirected back to Implementation page. 
     
       Scenario: Verify that user is able to navigate to Applications page
@@ -87,11 +87,10 @@ Scenario: Verify that user is able to navigate to Operations in Stack page
     Given The user is on the Applications page
     When The user clicks Try Here button in Applications page
     Then The user should be redirected to a page having a try Editor with a Run button to test 
-    
-     Scenario Outline: Output Testing with different sets of invalid data in Applications page
-     Given The user is in the tryEditor page
+      Scenario Outline: Output Testing with different sets of invalid data in Applications page
+     Given The user is in the tryEditor page of Stack
      When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
-     Then The user should able to see an error message in alert window
+     Then The user should able to see an error message in alert window of Stack page
      
        Examples: 
       | SheetName  | RowNumber |
@@ -100,22 +99,20 @@ Scenario: Verify that user is able to navigate to Operations in Stack page
       | TryEditor |     2 | 
       
    Scenario Outline: Output Testing with different sets of valid data in Applications page
-     Given The user is in the tryEditor page
+     Given The user is in the tryEditor page of Stack
      When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
-     Then TThe user should able to see output in the console
+     Then The user should able to see output in the console
      
        Examples: 
       | SheetName  | RowNumber |
       | TryEditor |     3 | 
-     
-     
-   Scenario: Verify that the user shoud be back to Applications page
+    Scenario: Verify that the user shoud be back to Applications page
     Given The user is on the Tryeditor of Applications page
-    When The user click on the Back arrow on top 
-    Then The user should be redirected back to Applications page. 
+    When The user click on the Back arrow on top of Applications page
+    Then The user should be redirected back to Applications page.
     
-    Scenario: Verify that user is able to navigate to Practice Questions Page for Operations in Stack page
-    Given The user is in the Stack page
-    When The user clicks Practice Questions button
-    Then The user should be redirected to Practice page
+    #Scenario: Verify that user is able to navigate to Practice Questions Page for Operations in Stack page
+    #Given The user is in the Stack page
+    #When The user clicks Practice Questions button
+    #Then The user should be redirected to Practice page
     

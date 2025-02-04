@@ -2,6 +2,8 @@ package pageObjects;
 //import static utilities.DriverManager.driver;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,14 +14,15 @@ import utilities.ConfigReader;
 import utilities.DriverManager;
 //import utilities.DriverManager;
 //import utilities.ExcelSheetHandling;
-
+import java.time.Duration;
 public class LoginPage {
-	   // public  WebDriver driver;
-	String currentUrl;
+	  
+	    String currentUrl;
+	    WebDriverWait wait;
 	  // Using Page Factory annotations
 	    @FindBy (xpath = "//button[@class='btn']")
 	    private WebElement getStartedBtn;
-	    
+	  
 	    @FindBy (xpath = "//a[normalize-space()='Sign in']")
 	    private WebElement loginBtn;
 	    @FindBy(name = "username") 
@@ -30,9 +33,9 @@ public class LoginPage {
 
 	    @FindBy(xpath = "/html/body/div[2]/div/div[2]/form/input[4]")
 	    private WebElement loginButton;
-	
-	   // @FindBy(xpath="//a[normalize-space()='Sign out']")
-	    @FindBy(xpath="//a[@href='/logout']")
+
+	  
+	    @FindBy(xpath = "//a[normalize-space()='Sign out']")
 	    private WebElement signOutBtn;
 	    
 	    @FindBy(xpath="//div[@role='alert']")
@@ -41,18 +44,19 @@ public class LoginPage {
 	    
 	    public LoginPage() {
 	    	  PageFactory.initElements(driver, this);
+	    	 wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		}
-     
-		public void getHomeURL() {
-	    	
-	    	driver.get(ConfigReader.getProperty("homeUrl"));
-	    	
-	    }
 	    public void getUStartedButtonClick()
 	    {
 	    	getStartedBtn.click();
 	    	
 	    }
+		public void getHomeURL() {
+	    	
+	    	driver.get(ConfigReader.getProperty("baseUrl"));
+	    	getUStartedButtonClick();
+	    }
+	   
 	    public void getLoginBtn()
 	    {
 	    	loginBtn.click();
@@ -79,11 +83,11 @@ public class LoginPage {
 	  
 	        loginButton.click();
 	    }
-        
+	    
 	   
 		public void signOutBtnClick() {
+			// wait.until(ExpectedConditions.visibilityOf(signOutBtn)).click();
 			signOutBtn.click();
-			
 		}
         public String getLogoutSuccessMessage()
         {
@@ -91,11 +95,10 @@ public class LoginPage {
         	
         }	
      
-
-		public String getCurrentUrl() {
-		
-			 return driver.getCurrentUrl();
-		}
-
+     // Method to get the current URL
+       public String getCurrentUrl() {
+            return driver.getCurrentUrl();
+        }
 	
+		
 }
