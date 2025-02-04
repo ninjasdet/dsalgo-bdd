@@ -120,11 +120,11 @@ public class GraphStepDefinition extends DriverManager {
 		throw new io.cucumber.java.PendingException();
 	}
 
-	@When("the user clicks on the {string} arrow at the top")
-	public void the_user_clicks_on_the_arrow_at_the_top(String string) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
+//	@When("the user clicks on the {string} arrow at the top")
+//	public void the_user_clicks_on_the_arrow_at_the_top(String string) {
+//		// Write code here that turns the phrase above into concrete actions
+//		throw new io.cucumber.java.PendingException();
+//	}
 
 	@Given("the user is in  {string} page")
 	public void the_user_is_in_page(String string) {
