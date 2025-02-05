@@ -21,27 +21,28 @@ Scenario: Verify that user is able to navigate to Implementation of Queue in Pyt
    Scenario: Verify that user is able to navigate to try Editor page for Implementation of Queue in Python page
     Given The user is on the Implementation of Queue in Python page
     When The user clicks Try Here button in Implementation of Queue in Python page
-    Then The user should be redirected to a page having a try Editor with a Run button to test
+    Then The user should be redirected to a page having a try Editor with a Run button to test of Queue
     
     Scenario Outline: Output Testing with different sets of invalid data in Implementation of Queue in Python
      Given The user is in the tryEditor page of queue
-     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
+     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then In alert window of queue page The user should able to see an error message in alert window
      
        Examples: 
       | SheetName  | RowNumber |
 
-      | TryEditor |     1 | 
-      | TryEditor |     2 | 
+      | TryEditor  |     1     | 
+      | TryEditor  |     2     | 
       
    Scenario Outline: Output Testing with different sets of valid data Implementation of Queue in Python
      Given The user is in the tryEditor page of queue
-     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
-     Then The user should able to see output in the console
+     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     Then The user should able to see output in the console of queue
      
        Examples: 
       | SheetName  | RowNumber |
-      | TryEditor |     3 | 
+      
+      | TryEditor  |     3     | 
       
     Scenario: Verify that the user shoud be back to Implementation of Queue in Python page
     Given The user is on the Tryeditor of Implementation of Queue in Python page
@@ -56,27 +57,28 @@ Scenario: Verify that user is able to navigate to Implementation of Queue in Pyt
      Scenario: Verify that user is able to navigate to try Editor page for Implementation using collections.deque page page
     Given The user is on the Implementation using collections.deque page page
     When The user clicks Try Here button in Implementation using collections.deque page page
-    Then The user should be redirected to a page having a try Editor with a Run button to test 
+    Then The user should be redirected to a page having a try Editor with a Run button to test of Queue 
     
      Scenario Outline: Output Testing with different sets of invalid data in Implementation using collections.deque page page
      Given The user is in the tryEditor page of queue
-     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
+     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then In alert window of queue page The user should able to see an error message in alert window
      
        Examples: 
       | SheetName  | RowNumber |
 
-      | TryEditor |     1 | 
-      | TryEditor |     2 | 
+      | TryEditor  |     1     | 
+      | TryEditor  |     2     | 
       
    Scenario Outline: Output Testing with different sets of valid data in Implementation using collections.deque page page
      Given The user is in the tryEditor page of queue
-     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
-     Then The user should able to see output in the console
+     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     Then The user should able to see output in the console of queue
      
        Examples: 
       | SheetName  | RowNumber |
-      | TryEditor |     3 | 
+      
+      | TryEditor  |     3     | 
       
    Scenario: Verify that the user shoud be back to Implementation using collections.deque page 
     Given The user is on the Tryeditor of Implementation using collections.deque page 
@@ -91,27 +93,27 @@ Scenario: Verify that user is able to navigate to Implementation of Queue in Pyt
      Scenario: Verify that user is able to navigate to try Editor page for Implementation using array page
     Given The user is on the Implementation using array page
     When The user clicks Try Here button in Implementation using array page
-    Then The user should be redirected to a page having a try Editor with a Run button to test 
+    Then The user should be redirected to a page having a try Editor with a Run button to test of Queue 
     
      Scenario Outline: Output Testing with different sets of invalid data in Implementation using array page
      Given The user is in the tryEditor page of queue
-     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
+     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then In alert window of queue page The user should able to see an error message in alert window
      
        Examples: 
       | SheetName  | RowNumber |
 
-      | TryEditor |     1 | 
-      | TryEditor |     2 | 
+      | TryEditor  |     1     | 
+      | TryEditor  |     2     | 
       
    Scenario Outline: Output Testing with different sets of valid data in Implementation using array page
      Given The user is in the tryEditor page of queue
-     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
-     Then The user should able to see output in the console
+     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     Then The user should able to see output in the console of queue
      
        Examples: 
       | SheetName  | RowNumber |
-      | TryEditor |     3 | 
+      | TryEditor  |     3     | 
      
       
    Scenario: Verify that the user shoud be back to Implementation using array page
@@ -124,38 +126,39 @@ Scenario: Verify that user is able to navigate to Implementation of Queue in Pyt
     When The user clicks Queue Operations using array button
     Then The user should be redirected to Queue Operations page 
     
-     #Scenario: Verify that user is able to navigate to try Editor page for Queue Operations page
-    #Given The user is on the Queue Operations page
-    #When The user clicks Try Here button in Queue Operations page
-    #Then The user should be redirected to a page having a try Editor with a Run button to test 
-    #
-     #Scenario Outline: Output Testing with different sets of invalid data in Queue Operations page
-     #Given The user is in the tryEditor page of queue
-     #When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
-     #Then In alert window of queue page The user should able to see an error message in alert window
-     #
-       #Examples: 
-      #| SheetName  | RowNumber |
-#
-      #| TryEditor |     1 | 
-      #| TryEditor |     2 | 
-      #
-   #Scenario Outline: Output Testing with different sets of valid data in Queue Operations page
-     #Given The user is in the tryEditor page of queue
-     #When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
-     #Then TThe user should able to see output in the console
-     #
-       #Examples: 
-      #| SheetName  | RowNumber |
-      #| TryEditor |     3 		 | 
-      #
-   #Scenario: Verify that the user shoud be back to Queue Operations page
-    #Given The user is on the Tryeditor of Queue Operations page
-    #When the user clicks on the "Back" arrow of Queue Operations page
-    #Then The user should be redirected back to Queue Operations page 
-       #
-    #Scenario: Verify that user is able to navigate to Practice Questions Page for Implementation of Queue in Python page
-    #Given The user is in the Queue page
-    #When the user clicks the "Practice Questions" link
-    #Then the user should be redirected to the "Practice Questions" page
+     Scenario: Verify that user is able to navigate to try Editor page for Queue Operations page
+    Given The user is on the Queue Operations page
+    When The user clicks Try Here button in Queue Operations page
+    Then The user should be redirected to a page having a try Editor with a Run button to test of Queue 
+    
+     Scenario Outline: Output Testing with different sets of invalid data in Queue Operations page
+     Given The user is in the tryEditor page of queue
+     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     Then In alert window of queue page The user should able to see an error message in alert window
+     
+       Examples: 
+      | SheetName  | RowNumber |
+
+      | TryEditor  |     1     | 
+      | TryEditor  |     2     | 
+      
+   Scenario Outline: Output Testing with different sets of valid data in Queue Operations page
+     Given The user is in the tryEditor page of queue
+     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     Then The user should able to see output in the console of queue
+     
+       Examples: 
+      | SheetName  | RowNumber |
+      
+      | TryEditor  |     3 		 | 
+      
+   Scenario: Verify that the user shoud be back to Queue Operations page
+    Given The user is on the Tryeditor of Queue Operations page
+    When the user clicks on the Back arrow of Queue Operations page
+    Then The user should be redirected back to Queue Operations page 
+       
+    Scenario: Verify that user is able to navigate to Practice Questions Page for Implementation of Queue in Python page
+    Given The user is in the Queue page
+    When the user clicks the Practice Questions link of queue
+    Then the user should be redirected to the Practice Questions page of queue
     
