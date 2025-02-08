@@ -10,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import utilities.ConfigReader;
 import utilities.DriverManager;
+import utilities.LoggerLoad;
 
 public class HomePage {
   
@@ -41,6 +42,7 @@ public class HomePage {
 	public void getbaseUrl() {
 		
 		driver.get(ConfigReader.getProperty("baseUrl"));
+		LoggerLoad.info("get the base url");
 	}
 
 	public boolean isOnDSAlgoPortal() {
@@ -48,10 +50,10 @@ public class HomePage {
 		return driver.getCurrentUrl().contains("dsportalapp");  // Check if "dsalgo" is part of the URL;
 	}
 	
-	// Method to check if portal page is visible
-    public boolean isPortalPageVisible() {
-        return portalLabel.isDisplayed();
-    }
+//	// Method to check if portal page is visible
+//    public boolean isPortalPageVisible() {
+//        return portalLabel.isDisplayed();
+//    }
   
     public boolean isNotLoggedInMessageDisplayed() {
         return notLoggedInMessage.isDisplayed();
@@ -59,6 +61,7 @@ public class HomePage {
     // Click on Data Structures dropdown
     public void clickDataStructuresDropdown() {
         dataStructuresDropdown.click();
+        LoggerLoad.info("clickDataStructuresDropdown");
     }
  // Get Started button for different options (Dynamic)
     public WebElement getGetStartedButton(String option) {

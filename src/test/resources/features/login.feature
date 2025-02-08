@@ -21,8 +21,8 @@ Scenario Outline: Login scenario with different sets of data
       | SignInDetails |     5 |
       | SignInDetails |     6 |
       | SignInDetails |     7 |
-      
-#Scenario:SignOut
-#Given The user is in the Home page after Sign in
-#When The user clicks Sign out
-#Then The user should be redirected to home page with message Logged out successfully
+      #
+Scenario:SignOut
+Given The user is in the Home page after Sign in
+When The user clicks Sign out
+Then The user should be redirected to home page with message Logged out successfully
