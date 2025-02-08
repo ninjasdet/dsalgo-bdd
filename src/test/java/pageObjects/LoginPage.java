@@ -1,6 +1,7 @@
 package pageObjects;
 //import static utilities.DriverManager.driver;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,6 +16,7 @@ import utilities.DriverManager;
 //import utilities.DriverManager;
 //import utilities.ExcelSheetHandling;
 import java.time.Duration;
+import utilities.LoggerLoad;
 public class LoginPage {
 	  
 	    String currentUrl;
@@ -35,10 +37,12 @@ public class LoginPage {
 	    private WebElement loginButton;
 
 	  
-	    @FindBy(xpath = "//a[normalize-space()='Sign out']")
+	 //   @FindBy(xpath = "//a[normalize-space()='Sign out']")
+	    @FindBy(xpath = "//a[@href='/logout' and text()='Sign out']")
+	 
 	    private WebElement signOutBtn;
 	    
-	    @FindBy(xpath="//div[@role='alert']")
+	    @FindBy(xpath="/html/body/div[2]")
 	    private WebElement signOutMsg;
 	    public WebDriver driver=DriverManager.getDriver();
 	    
@@ -49,18 +53,19 @@ public class LoginPage {
 	    public void getUStartedButtonClick()
 	    {
 	    	getStartedBtn.click();
-	    	
+	    	LoggerLoad.info("Clicked Get started");
 	    }
 		public void getHomeURL() {
 	    	
 	    	driver.get(ConfigReader.getProperty("baseUrl"));
 	    	getUStartedButtonClick();
+	    	LoggerLoad.info("in Home url");
 	    }
 	   
 	    public void getLoginBtn()
 	    {
 	    	loginBtn.click();
-	    	
+	    	LoggerLoad.info("Clicked login button");
 	    }
 	    public void getLoginBtnURL()
 	    {  
@@ -73,10 +78,12 @@ public class LoginPage {
 	    public void enterUsername(String username) {
 	        usernameField.clear();
 	        usernameField.sendKeys(username);
+	        LoggerLoad.info("entered username");
 	    }
 	    public void enterPassword(String password) {
 	        passwordField.clear();
 	        passwordField.sendKeys(password);
+	        LoggerLoad.info("entered password");
 	    }
 	    
 	    public void clickLogin() {
@@ -86,8 +93,12 @@ public class LoginPage {
 	    
 	   
 		public void signOutBtnClick() {
-			// wait.until(ExpectedConditions.visibilityOf(signOutBtn)).click();
-			signOutBtn.click();
+			//wait.until(ExpectedConditions.visibilityOf(signOutBtn)).click();
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			WebElement signOutLink = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"navbarCollapse\"]/div[2]/ul/a[3]")));
+			signOutLink.click();
+			//signOutBtn.click();
+			 LoggerLoad.info("clicked sign out button");
 		}
         public String getLogoutSuccessMessage()
         {

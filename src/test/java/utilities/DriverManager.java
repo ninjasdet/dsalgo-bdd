@@ -14,11 +14,11 @@ public class DriverManager {
 
 	private static WebDriver driver;
 
-	public static WebDriver initializeDriver(String browser)
+	private static void initializeDriver(String browser)
 
 	{
-		if (driver == null) {
-			browser = ConfigReader.getProperty("browser");
+		//if (driver == null) {
+			//browser = ConfigReader.getProperty("browser");
 			boolean headless = Boolean.parseBoolean(ConfigReader.getProperty("headless"));
 
 			switch (browser.toLowerCase()) {
@@ -41,7 +41,7 @@ public class DriverManager {
 //                    break;
 			case "edge":
 				String firefoxDriverPath = ConfigReader.getProperty("msedgedriver.path");
-				// WebDriverManager.firefoxdriver().setup();
+				 WebDriverManager.firefoxdriver().setup();
 				// String firefoxDriverPath=
 				// "C:\\Users\\sride\\eclipse-workspace\\SampleTestingBDD\\src\\test\\resources\\drivers\\geckodriver.exe";
 				System.setProperty("webdriver.edge.driver", firefoxDriverPath);
@@ -60,14 +60,23 @@ public class DriverManager {
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 			driver.manage().window().maximize();
 		}
-		return driver;
-	}
+		//return driver;
+	
+	// Public method to get the driver
+    public static WebDriver getDriver() {
+        if (driver == null) {
+            String browser = System.getProperty("browser", ConfigReader.getProperty("browser")); // Get browser from TestNG XML or config file
+            initializeDriver(browser);
+        }
+        return driver;
+    }
+	
+//
+//	public static WebDriver getDriver() {
+//		return driver;
+//	}
 
-	public static WebDriver getDriver() {
-		return driver;
-	}
-
-	public static void closeDriver() {
+	public static void quitDriver() {
 		if (driver != null) {
 			driver.quit();
 			driver = null;
