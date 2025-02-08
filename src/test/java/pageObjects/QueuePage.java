@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utilities.DriverManager;
+import utilities.LoggerLoad;
 
 public class QueuePage {
 	public WebDriver driver=DriverManager.getDriver();
@@ -25,6 +26,8 @@ public class QueuePage {
 	    WebElement implementationUsingArrayButton;
 	    @FindBy(xpath = "//a[normalize-space()='Queue Operations']") 
 	    WebElement queueOperationsButton;
+	    @FindBy(xpath = "//a[@href='/queue/practice']") // Adjust based on actual HTML
+	    WebElement practiceQuestionsButtonQ;
 	   public void getStartQueue()
 	    {
 		   getStartedQueue.click();
@@ -36,9 +39,19 @@ public class QueuePage {
 	   public void getBackQueue()
 	    {loginPage.getHomeURL();
 	    getStartQueue();
-	    	
+	    
 	    	
 	    }
+	   public void gettryEditorURLqueue()
+		{ 
+		
+			//driver.get("https://dsportalapp.herokuapp.com/tryEditor"); //TBD
+			loginPage.getHomeURL();
+			getStartQueue();
+			
+		//	getoptsSlackURL();
+		//	clickTryHere();
+		}
 	   public void clickImplementationCollectionsDeque() {
 	        implementationCollectionsDequeButton.click();
 	    }
@@ -48,4 +61,8 @@ public class QueuePage {
 	   public void clickQueueOperationsButton() {
 	        queueOperationsButton.click();
 	    }
+	   public void clickPracticeQuestionsButtonQueue() {
+		   practiceQuestionsButtonQ.click();
+			LoggerLoad.info("PracticeQuestions clicked");
+		}
 }

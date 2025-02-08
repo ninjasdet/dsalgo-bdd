@@ -15,18 +15,19 @@ import utilities.ExcelReader;
 import utilities.LoggerLoad;
 
 public class StackStepDefinition {
-	LoginPage loginPage = new LoginPage();	
+	LoginPage loginPage = new LoginPage();
 	HomePage homePage = new HomePage();
 	StackPage stackPage = new StackPage();
 	ExcelReader excelUtils;
-	
+
 	@Given("For stack the user signs in to dsAlgo Portal")
 	public void for_stack_the_user_signs_in_to_ds_algo_portal() {
-	
-           loginPage.getHomeURL();
-           loginPage.getLoginBtn();
-           stackPage.performLogin("SignInDetails",7);
+
+		loginPage.getHomeURL();
+		loginPage.getLoginBtn();
+		stackPage.performLogin("SignInDetails", 7);
 	}
+
 //	@Given("For stack the user is in the Home page after Sign in")
 //	public void for_stack_the_user_is_in_the_home_page_after_sign_in() {
 //		loginPage.getHomeURL();
@@ -34,13 +35,13 @@ public class StackStepDefinition {
 	@When("The user clicks the Getting Started button in the Stack Panel Or The user selects the Stack item from the drop-down menu")
 	public void the_user_clicks_the_getting_started_button_in_the_stack_panel_or_the_user_selects_the_stack_item_from_the_drop_down_menu() {
 		stackPage.getStartStack();
-		 LoggerLoad.info("clicked the getting started method");
+		LoggerLoad.info("clicked the getting started method");
 	}
 
 	@Then("The user is directed to the Stack Data Structure Page")
 	public void the_user_is_directed_to_the_stack_data_structure_page() {
 		Assert.assertTrue(stackPage.isStackPageDisplayed(), "Failed to navigate to the Stack Data Structure page.");
-		 LoggerLoad.info("Redirected to stack page");
+		LoggerLoad.info("Redirected to stack page");
 	}
 
 	@Given("The user is in the Stack page after Sign in")
@@ -78,7 +79,7 @@ public class StackStepDefinition {
 
 	@Then("The user should be redirected to a page having a try Editor with a Run button to test of Stack page")
 	public void the_user_should_be_redirected_to_a_page_having_a_try_editor_with_a_run_button_to_test_of_stack_page() {
-		
+
 		Assert.assertTrue(loginPage.getCurrentUrl().contains("tryEditor"), "User is not on tryEditor page of ");
 		LoggerLoad.info("redirected to a page having a try Editor");
 	}
@@ -87,34 +88,36 @@ public class StackStepDefinition {
 	public void the_user_is_in_the_try_editor_page_of_stack() {
 		stackPage.gettryEditorURL();
 	}
-	 @When("For stack the user clicks the Run button after entering {int} from {string}")
-	 public void for_stack_the_user_clicks_the_run_button_after_entering_from(Integer RowNumber, String string) {
-		 try {
-				
-				excelUtils = new ExcelReader(ConfigReader.getProperty("excelPath"));
-				} catch (IOException e) {
-					
-					e.printStackTrace();
-				}
-		 String invalidCode = excelUtils.getCellData("TryEditor", RowNumber - 1, 0); 
-			
-		 stackPage.enterCode(invalidCode);
-		 stackPage.clickRunButton();
-		 LoggerLoad.info("user clicked the Run button");
 
-	 }
+	@When("For stack the user clicks the Run button after entering {int} from {string}")
+	public void for_stack_the_user_clicks_the_run_button_after_entering_from(Integer RowNumber, String string) {
+		try {
+
+			excelUtils = new ExcelReader(ConfigReader.getProperty("excelPath"));
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+		String invalidCode = excelUtils.getCellData("TryEditor", RowNumber - 1, 0);
+
+		stackPage.enterCode(invalidCode);
+		stackPage.clickRunButton();
+		LoggerLoad.info("user clicked the Run button");
+
+	}
 
 	@Then("The user should able to see an error message in alert window of Stack page")
 	public void the_user_should_able_to_see_an_error_message_in_alert_window_of_stack_page() {
-		  System.out.println("testing");
+		System.out.println("testing");
 
 	}
 
 	@Then("The user should able to see output in the console of Stack")
 	public void the_user_should_able_to_see_output_in_the_console_of_stack() {
 		String output = stackPage.getConsoleOutput();
-      //  Assert.assertTrue(output.isEmpty(), "Expected output in console, but found empty.");
-        System.out.println("Output: " + output);
+		// Assert.assertTrue(output.isEmpty(), "Expected output in console, but found
+		// empty.");
+		System.out.println("Output: " + output);
 
 	}
 
@@ -128,6 +131,7 @@ public class StackStepDefinition {
 	@When("The user click on the Back arrow on top Operations in Stack page")
 	public void the_user_click_on_the_back_arrow_on_top_operations_in_stack_page() {
 		stackPage.getBackOPS();
+		stackPage.getoptsSlackURL();
 		LoggerLoad.info("clicked on the Back arrow");
 	}
 
@@ -166,7 +170,7 @@ public class StackStepDefinition {
 
 	@Given("The user is on the Tryeditor of Implementation page")
 	public void the_user_is_on_the_tryeditor_of_implementation_page() {
-		
+
 		stackPage.gettryEditorURL();
 		LoggerLoad.info("on the Tryeditor of Implementation page");
 
@@ -206,7 +210,7 @@ public class StackStepDefinition {
 
 	@When("The user clicks Try Here button in Applications page")
 	public void the_user_clicks_try_here_button_in_applications_page() {
-		stackPage.clickTryHere(); 
+
 		LoggerLoad.info("On the Applications page");
 	}
 
@@ -238,18 +242,15 @@ public class StackStepDefinition {
 
 	@When("The user clicks Practice Questions button")
 	public void the_user_clicks_practice_questions_button() {
-		 stackPage.clickPracticeQuestionsButton();
-		 LoggerLoad.info("clicked Practice Questions button");
+		stackPage.clickPracticeQuestionsButton();
+		LoggerLoad.info("clicked Practice Questions button");
 
 	}
 
 	@Then("The user should be redirected to Practice page")
 	public void the_user_should_be_redirected_to_practice_page() {
-		  Assert.assertTrue(loginPage.getCurrentUrl().contains("practice"), "User is not redirected to the Practice page.");
-		  LoggerLoad.info("redirected to Practice page");
+		Assert.assertTrue(loginPage.getCurrentUrl().contains("practice"),"User is not redirected to the Practice page.");
+		LoggerLoad.info("redirected to Practice page");
 	}
-
-
-
 
 }

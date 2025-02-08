@@ -14,7 +14,7 @@ import utilities.DriverManager;
 @CucumberOptions(plugin = { "pretty", "html:target/sridevi.html", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm" },
 // reporting purpose
 monochrome = true, // console output color
-tags="@Homepage or @LoginPage or @Stackpage",
+tags="@Homepage or @LoginPage or @Stackpage or @Queuepage",
 features = { "src/test/resources/features" }, // location of feature files
 glue = { "stepDefinitions", "hooks" }
 )
