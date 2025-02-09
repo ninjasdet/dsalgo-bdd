@@ -3,13 +3,20 @@ package stepDefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageObjects.HomePage;
+import pageObjects.LoginPage;
+import pageObjects.StackPage;
 
 public class DataStructureStepDefinition {
-
+	HomePage homePage = new HomePage();
+	LoginPage loginPage = new LoginPage();
+	StackPage stackPage = new StackPage();
+	
 	@Given("the user signs in to dsAlgo Portal")
 	public void the_user_signs_in_to_ds_algo_portal() {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
+
 	}
 
 	@Given("the user is in the Home page after signing in")

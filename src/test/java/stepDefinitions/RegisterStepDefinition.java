@@ -1,10 +1,18 @@
 package stepDefinitions;
 
+
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageObjects.StackPage;
+
+import utilities.ExcelReader;
 
 public class RegisterStepDefinition {
+
+	ExcelReader excelUtils;
+	StackPage stackPage = new StackPage();
 
 	@Given("The user is on the user Registration page")
 	public void the_user_is_on_the_user_registration_page() {
@@ -25,9 +33,9 @@ public class RegisterStepDefinition {
 	}
 
 	@When("The user clicks the Run button after entering {int} from {string}")
-	public void the_user_clicks_the_run_button_after_entering_from(Integer int1, String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void the_user_clicks_the_run_button_after_entering_from(int RowNumber , String SheetName)
+	{
+
 	}
 
 	@Then("The user should able to see error message")

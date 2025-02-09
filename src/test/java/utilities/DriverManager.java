@@ -21,9 +21,7 @@ public class DriverManager {
 	{
 		//if (driver == null) {
 			//browser = ConfigReader.getProperty("browser");
-		 if (browser == null || browser.trim().isEmpty()) {
-	            browser = "chrome";  // You can change this to any default browser you prefer
-	        }
+
 			boolean headless = Boolean.parseBoolean(ConfigReader.getProperty("headless"));
 
 			switch (browser.toLowerCase()) {
@@ -51,13 +49,17 @@ public class DriverManager {
                     driver = new FirefoxDriver(firefoxOptions);
                     break;
 			case "edge":
-				WebDriverManager.edgedriver().setup();
-                EdgeOptions edgeOptions = new EdgeOptions();
-                if (headless) {
-                    edgeOptions.addArguments("--headless");
-                    edgeOptions.addArguments("--disable-gpu");
-                    edgeOptions.addArguments("--window-size=1920,1080");
-                }
+				String firefoxDriverPath = ConfigReader.getProperty("msedgedriver.path");
+				 WebDriverManager.firefoxdriver().setup();
+				// String firefoxDriverPath=
+				// "C:\\Users\\sride\\eclipse-workspace\\SampleTestingBDD\\src\\test\\resources\\drivers\\geckodriver.exe";
+				System.setProperty("webdriver.edge.driver", firefoxDriverPath);
+				EdgeOptions edgeOptions = new EdgeOptions();
+				if (headless) {
+					edgeOptions.addArguments("--headless");
+					edgeOptions.addArguments("--disable-gpu");
+					edgeOptions.addArguments("--window-size=1920,1080");
+				}
 				driver = new EdgeDriver(edgeOptions);
 				break;
 			default:

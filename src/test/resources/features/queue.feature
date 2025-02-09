@@ -6,18 +6,18 @@ Feature: Home Navigation
   So that I can explore their functionalities.
 
   Background:
-    Given the user signs in to dsAlgo Portal
+    Given For queue the user signs in to dsAlgo Portal
 
   Scenario: Verify that user is able to navigate to Queue data structure page
-    Given The user is in the Home page after Sign in
+  #  Given The user is in the Home page after Sign in
     When The user clicks the Getting Started button in the Queue Panel Or The user selects the Queue item from the drop-down menu
     Then The user is directed to the Queue Data Structure Page
     
-Scenario: Verify that user is able to navigate to Implementation of Queue in Python page
+    Scenario: Verify that user is able to navigate to Implementation of Queue in Python page
     Given The user is in the Queue page after Sign in
     When The user clicks Implementation of Queue in Python button
     Then The user should be redirected to Implementation of Queue in Python page
-   
+
    Scenario: Verify that user is able to navigate to try Editor page for Implementation of Queue in Python page
     Given The user is on the Implementation of Queue in Python page
     When The user clicks Try Here button in Implementation of Queue in Python page
@@ -25,7 +25,7 @@ Scenario: Verify that user is able to navigate to Implementation of Queue in Pyt
     
     Scenario Outline: Output Testing with different sets of invalid data in Implementation of Queue in Python
      Given The user is in the tryEditor page of queue
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For queue The user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then In alert window of queue page The user should able to see an error message in alert window
      
        Examples: 
@@ -36,7 +36,7 @@ Scenario: Verify that user is able to navigate to Implementation of Queue in Pyt
       
    Scenario Outline: Output Testing with different sets of valid data Implementation of Queue in Python
      Given The user is in the tryEditor page of queue
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For queue The user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see output in the console of queue
      
        Examples: 
@@ -123,7 +123,7 @@ Scenario: Verify that user is able to navigate to Implementation of Queue in Pyt
     
       Scenario: Verify that user is able to navigate to Queue Operations page
     Given The user is in the Queue page after Sign in
-    When The user clicks Queue Operations using array button
+    When The user clicks Queue Operations button
     Then The user should be redirected to Queue Operations page 
     
      Scenario: Verify that user is able to navigate to try Editor page for Queue Operations page
