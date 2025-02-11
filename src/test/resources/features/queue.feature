@@ -61,7 +61,7 @@ Feature: Home Navigation
     
      Scenario Outline: Output Testing with different sets of invalid data in Implementation using collections.deque page page
      Given The user is in the tryEditor page of queue
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For queue The user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then In alert window of queue page The user should able to see an error message in alert window
      
        Examples: 
@@ -72,7 +72,7 @@ Feature: Home Navigation
       
    Scenario Outline: Output Testing with different sets of valid data in Implementation using collections.deque page page
      Given The user is in the tryEditor page of queue
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For queue The user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see output in the console of queue
      
        Examples: 
@@ -97,7 +97,7 @@ Feature: Home Navigation
     
      Scenario Outline: Output Testing with different sets of invalid data in Implementation using array page
      Given The user is in the tryEditor page of queue
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For queue The user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then In alert window of queue page The user should able to see an error message in alert window
      
        Examples: 
@@ -108,7 +108,7 @@ Feature: Home Navigation
       
    Scenario Outline: Output Testing with different sets of valid data in Implementation using array page
      Given The user is in the tryEditor page of queue
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For queue The user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see output in the console of queue
      
        Examples: 
@@ -133,7 +133,7 @@ Feature: Home Navigation
     
      Scenario Outline: Output Testing with different sets of invalid data in Queue Operations page
      Given The user is in the tryEditor page of queue
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For queue The user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then In alert window of queue page The user should able to see an error message in alert window
      
        Examples: 
@@ -144,7 +144,7 @@ Feature: Home Navigation
       
    Scenario Outline: Output Testing with different sets of valid data in Queue Operations page
      Given The user is in the tryEditor page of queue
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For queue The user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see output in the console of queue
      
        Examples: 
