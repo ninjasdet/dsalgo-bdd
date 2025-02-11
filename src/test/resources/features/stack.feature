@@ -32,7 +32,7 @@ Feature: Stack Data Structure Navigation
       
    Scenario Outline: Output Testing with different sets of valid data Operations in Stack page
      Given The user is in the tryEditor page of Stack
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For stack the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see output in the console of Stack 
      
        Examples: 
@@ -57,7 +57,7 @@ Feature: Stack Data Structure Navigation
     
      Scenario Outline: Output Testing with different sets of invalid data in Implementation page
      Given The user is in the tryEditor page of Stack
-     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
+     When For stack the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see an error message in alert window of Stack page
      
        Examples: 
@@ -68,7 +68,7 @@ Feature: Stack Data Structure Navigation
       
    Scenario Outline: Output Testing with different sets of valid data in Implementation page
      Given The user is in the tryEditor page of Stack
-     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
+     When For stack the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see output in the console of Stack 
      
        Examples: 
@@ -93,7 +93,7 @@ Feature: Stack Data Structure Navigation
      
      Scenario Outline: Output Testing with different sets of invalid data in Applications page
      Given The user is in the tryEditor page of Stack
-     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
+     When For stack the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see an error message in alert window of Stack page
      
        Examples: 
@@ -104,7 +104,7 @@ Feature: Stack Data Structure Navigation
       
    Scenario Outline: Output Testing with different sets of valid data in Applications page
      Given The user is in the tryEditor page of Stack
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For stack the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see output in the console of Stack
      
        Examples: 
