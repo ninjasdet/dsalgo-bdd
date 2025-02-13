@@ -60,7 +60,7 @@ public class StackStepDefinition {
 
 	@Then("The user should be redirected to Operations in Stack page")
 	public void the_user_should_be_redirected_to_operations_in_stack_page() {
-		Assert.assertTrue(loginPage.getCurrentUrl().contains("operations-in-stack"), "operations_in_stack_page");
+		Assert.assertTrue(loginPage.getCurrentUrl().contains("operations-in-stack"), "not in operations_in_stack_page");
 		LoggerLoad.info("redirected to Operations in Stack page");
 	}
 
@@ -142,8 +142,7 @@ public class StackStepDefinition {
 
 	@Then("The user should be redirected back to Operations in Stack page.")
 	public void the_user_should_be_redirected_back_to_operations_in_stack_page() {
-
-		Assert.assertTrue(loginPage.getCurrentUrl().contains("operations-in-stack"), "operations_in_stack_page");
+		Assert.assertTrue(loginPage.getCurrentUrl().contains("operations-in-stack"), "not in operations_in_stack_page");
 		LoggerLoad.info("redirected back to Operations in Stack page");
 
 	}
@@ -158,7 +157,7 @@ public class StackStepDefinition {
 
 	@Then("The user should be redirected to Implementation page")
 	public void the_user_should_be_redirected_to_implementation_page() {
-		Assert.assertTrue(loginPage.getCurrentUrl().contains(""), "implementation");
+		Assert.assertTrue(loginPage.getCurrentUrl().contains("implementation"), "not in implementation");
 		LoggerLoad.info("redirected to Implementation page");
 
 	}
@@ -197,8 +196,7 @@ public class StackStepDefinition {
 
 	@Then("The user should be redirected back to Implementation page.")
 	public void the_user_should_be_redirected_back_to_implementation_page() {
-
-		Assert.assertTrue(loginPage.getCurrentUrl().contains("implementation"), "implementation");
+		Assert.assertTrue(loginPage.getCurrentUrl().contains("implementation"), "not in implementation");
 		LoggerLoad.info("redirected back to Implementation page");
 
 	}
@@ -213,8 +211,7 @@ public class StackStepDefinition {
 
 	@Then("The user should be redirected to Applications page")
 	public void the_user_should_be_redirected_to_applications_page() {
-
-		Assert.assertTrue(loginPage.getCurrentUrl().contains(""), "applications");
+		Assert.assertTrue(loginPage.getCurrentUrl().contains("applications"), "not in applications");
 		LoggerLoad.info("Redirected to Applications page");
 
 	}
@@ -231,7 +228,7 @@ public class StackStepDefinition {
 
 	@When("The user clicks Try Here button in Applications page")
 	public void the_user_clicks_try_here_button_in_applications_page() {
-
+		stackPage.clickTryHere();  
 		LoggerLoad.info("On the Applications page");
 
 	}
@@ -254,8 +251,7 @@ public class StackStepDefinition {
 
 	@Then("The user should be redirected back to Applications page.")
 	public void the_user_should_be_redirected_back_to_applications_page() {
-
-		Assert.assertTrue(loginPage.getCurrentUrl().contains("applications"), "applications");
+		Assert.assertTrue(loginPage.getCurrentUrl().contains("applications"), "not in applications");
 		LoggerLoad.info("redirected back to Applications page");
 
 	}
