@@ -3,10 +3,10 @@ Feature: Tree Data Structure Navigation
 
  
   Background:
-    Given the user signs into dsAlgo Portal
+    Given For Tree Datastructure the user signs into dsAlgo Portal
     
   Scenario: Verify that the user is able to navigate into dsAlgo Portal of Tree Data structure Page. 
-    Given The user is in the Home page after Sign in
+    #Given The user is in the Home page after Sign in
     When the user clicks the Get Started button in the Tree Panel or the user selects Tree item from the drop-down menu
     Then the user directed to the Tree Data Structure Page
   
@@ -22,7 +22,7 @@ Feature: Tree Data Structure Navigation
   
   Scenario Outline: Output Testing with different sets of invalid data in Overview of Trees page
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see an error message in alert window of Tree
      
        Examples: 
@@ -33,18 +33,18 @@ Feature: Tree Data Structure Navigation
       
   Scenario Outline: Output Testing with different sets of valid data in Overview of Trees page
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see output in the console of Tree
      
        Examples: 
       | SheetName  | RowNumber |
       
       | TryEditor  |     4     | 
-    
+  
   Scenario: Verify that the user should be back to Overview of Trees
   Given The user is on the Tryeditor Overview of Trees page
-  When The user click on the Back arrow on top  Overview of Trees page 
-  Then The user should be redirected to Overview of Trees page
+  When The user click on the Back arrow on top tryeditor Overview of Trees page 
+  Then The user should be redirected back to Overview of Trees page
   
 # Terminologies
   Scenario: Verify that the user is able to navigate to Terminologies page
@@ -59,7 +59,7 @@ Feature: Tree Data Structure Navigation
   
   Scenario Outline: Output Testing with different sets of invalid data in Terminologies page
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see an error message in alert window of Tree
      
        Examples: 
@@ -70,7 +70,7 @@ Feature: Tree Data Structure Navigation
       
   Scenario Outline: Output Testing with different sets of valid data in Terminologies page
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see output in the console of Tree
      
        Examples: 
@@ -78,11 +78,11 @@ Feature: Tree Data Structure Navigation
       
       | TryEditor  |     4     | 
   
-  
+ 
   Scenario: Verify that the user shoud be back to Terminologies
 	  Given The user is on the Tryeditor Terminologies page
 	  When The user click on the Back arrow on top of Terminologies page
-	  Then The user should be redirected to Terminologies page
+	  Then The user should be redirected back to Terminologies page
   
  # Types of Trees
   Scenario: Verify that the user is able to navigate to Types of Trees page
@@ -97,7 +97,7 @@ Feature: Tree Data Structure Navigation
   
   Scenario Outline: Output Testing with different sets of invalid data in Types of Trees
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see an error message in alert window of Tree
      
        Examples: 
@@ -108,14 +108,14 @@ Feature: Tree Data Structure Navigation
       
   Scenario Outline: Output Testing with different sets of valid data in Types of Trees
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see output in the console of Tree
      
       Examples: 
       | SheetName  | RowNumber |
       
       | TryEditor  |     4		 | 	 
-  
+ 
   Scenario: Verify that the user should be back to Types of Trees
 	  Given The user is on the Tryeditor Types of Trees 
 	  When The user click on the Back arrow on top of Types of Trees
@@ -134,7 +134,7 @@ Feature: Tree Data Structure Navigation
 	  
 	  Scenario Outline: Output Testing with different sets of invalid data in Tree Traversals page
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see an error message in alert window of Tree
      
        Examples: 
@@ -145,7 +145,7 @@ Feature: Tree Data Structure Navigation
       
   Scenario Outline: Output Testing with different sets of valid data in Tree Traversals page
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see an error message in alert window of Tree
      
        Examples: 
@@ -171,7 +171,7 @@ Feature: Tree Data Structure Navigation
  
  Scenario Outline: Output Testing with different sets of invalid data in Traversals-Illustration page
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see an error message in alert window of Tree
      
        Examples: 
@@ -182,14 +182,14 @@ Feature: Tree Data Structure Navigation
       
   Scenario Outline: Output Testing with different sets of valid data in Traversals-Illustration page
      Given The user is in the tryEditor page of Tree 
-     When The user clicks the Run Button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see output in the console of Tree
      
        Examples: 
       | SheetName  | RowNumber |
       
       | TryEditor  |     4     |
-      
+   
   Scenario: Verify that the user shoud be back to Types of Traversals-Illustration 
 	  Given The user is on the Tryeditor Traversals-Illustration page
 	  When The user click on the Back arrow on top of Traversals-Illustration page 
@@ -209,7 +209,7 @@ Feature: Tree Data Structure Navigation
 	  
  Scenario Outline: Output Testing with different sets of invalid data in Binary Trees page
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see an error message in alert window of Tree
      
        Examples: 
@@ -220,14 +220,14 @@ Feature: Tree Data Structure Navigation
       
   Scenario Outline: Output Testing with different sets of valid data in Binary Trees page
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see output in the console of Tree
      
        Examples: 
       | SheetName  | RowNumber |
       
       | TryEditor  |     4     |
-	    
+	 
 	  Scenario: Verify that the user shoud be back to  Binary Trees 
 	  Given The user is on the Tryeditor Binary Trees page
 	  When The user click on the Back arrow on top of Binary Trees page
@@ -247,7 +247,7 @@ Feature: Tree Data Structure Navigation
 	  
  Scenario Outline: Output Testing with different sets of invalid data in Types of Binary Trees
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see an error message in alert window of Tree
      
        Examples: 
@@ -258,14 +258,14 @@ Feature: Tree Data Structure Navigation
       
   Scenario Outline: Output Testing with different sets of valid data in Types of Binary Trees page
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see output in the console of Tree
      
        Examples: 
       | SheetName  | RowNumber |
       
       | TryEditor  |     4     |
-	    
+	  
 	  Scenario: Verify that the user shoud be back to  Types of Binary Trees
 	  Given The user is on the Tryeditor Types of Binary Trees page
 	  When The user click on the Back arrow on top Binary Trees page 
@@ -285,7 +285,7 @@ Feature: Tree Data Structure Navigation
 	  
  	Scenario Outline: Output Testing with different sets of invalid data in Implementation in python
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see an error message in alert window
      
        Examples: 
@@ -296,14 +296,14 @@ Feature: Tree Data Structure Navigation
       
   Scenario Outline: Output Testing with different sets of valid data in Implementation in python page
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see output in the console of Tree
      
        Examples: 
       | SheetName  | RowNumber |
       
       | TryEditor  |     4     |
-	    
+	   
 	  Scenario: Verify that the user shoud be back to  Implementation in python
 		  Given The user is on the Tryeditor Implementation in python page
 		  When The user click on the Back arrow on top Implementation in python page
@@ -323,7 +323,7 @@ Feature: Tree Data Structure Navigation
 	  
  	Scenario Outline: Output Testing with different sets of invalid data in Binary Tree Traversals
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see an error message in alert window
      
        Examples: 
@@ -334,7 +334,7 @@ Feature: Tree Data Structure Navigation
       
   Scenario Outline: Output Testing with different sets of valid data in Binary Tree Traversals
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see output in the console of Tree
      
        Examples: 
@@ -361,7 +361,7 @@ Feature: Tree Data Structure Navigation
 	  
  	Scenario Outline: Output Testing with different sets of invalid data in Implementation of Binary Trees
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see an error message in alert window
      
        Examples: 
@@ -372,14 +372,14 @@ Feature: Tree Data Structure Navigation
       
   Scenario Outline: Output Testing with different sets of valid data in Implementation of Binary Trees
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see output in the console of Tree
      
        Examples: 
       | SheetName  | RowNumber |
       
       | TryEditor  |     4     |
-	    
+	   
 	  Scenario: Verify that the user shoud be back to  Implementation of Binary Trees
 	  Given The user is on the Tryeditor Implementation of Binary Trees
 	  When The user click on the Back arrow on top Implementation of Binary Trees 
@@ -398,7 +398,7 @@ Feature: Tree Data Structure Navigation
 		  
 	Scenario Outline: Output Testing with different sets of invalid data in Applications of Binary Trees
 	     Given The user is in the tryEditor page of Tree
-	     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+	     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
 	     Then The user should able to see an error message in alert window
      
        Examples: 
@@ -409,7 +409,7 @@ Feature: Tree Data Structure Navigation
       
   Scenario Outline: Output Testing with different sets of valid data in Applications of Binary Trees
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see output in the console of Tree
      
        Examples: 
@@ -437,7 +437,7 @@ Feature: Tree Data Structure Navigation
 	  
  	Scenario Outline: Output Testing with different sets of invalid data in Binary Search Trees
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see an error message in alert window
      
        Examples: 
@@ -448,7 +448,7 @@ Feature: Tree Data Structure Navigation
       
   Scenario Outline: Output Testing with different sets of valid data in Binary Search Trees
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see output in the console of Tree
      
        Examples: 
@@ -462,7 +462,7 @@ Feature: Tree Data Structure Navigation
 	  Then The user should be redirected to the Binary Search Trees of tree page 
 	  
 	  #Implementation Of BST
-	  
+	 
 	 Scenario: Verify that the user is able to navigate to Implementation Of BST page
 		  Given The user is in Tree DataStructure page
 		  When  The user clicks the Implementation Of BST link
@@ -476,7 +476,7 @@ Feature: Tree Data Structure Navigation
 	  
  	Scenario Outline: Output Testing with different sets of invalid data in Implementation Of BST
 	     Given The user is in the tryEditor page of Tree
-	     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+	     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
 	     Then The user should able to see an error message in alert window
      
        Examples: 
@@ -487,14 +487,14 @@ Feature: Tree Data Structure Navigation
       
   Scenario Outline: Output Testing with different sets of valid data in Implementation Of BST
      Given The user is in the tryEditor page of Tree
-     When The user clicks the Run button after entering <RowNumber> from "<SheetName>"
+     When For tree the user clicks the Run button after entering <RowNumber> from "<SheetName>"
      Then The user should able to see output in the console of Tree
      
        Examples: 
       | SheetName  | RowNumber |
       
       | TryEditor  |     4     |
-	    
+	 
 	  Scenario: Verify that the user shoud be back to  Implementation Of BST
 	  Given The user is on the Tryeditor Implementation Of BST
 	  When The user click on the Back arrow on top Implementation Of BST 
@@ -504,7 +504,7 @@ Feature: Tree Data Structure Navigation
 			Given The user is in the Tree page
 	    When the user clicks the Practice Questions link
 	    Then the user should be redirected to the Practice Questions page
-    
+   
   Scenario: Verify that the user can navigate back to the Tree page
     Given the user is in  practice questions page
     When the user clicks on the Back arrow at the top

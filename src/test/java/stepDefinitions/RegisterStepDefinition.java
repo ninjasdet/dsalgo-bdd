@@ -32,11 +32,7 @@ public class RegisterStepDefinition {
 	    throw new io.cucumber.java.PendingException();
 	}
 
-	@When("The user clicks the Run button after entering {int} from {string}")
-	public void the_user_clicks_the_run_button_after_entering_from(int RowNumber , String SheetName)
-	{
-
-	}
+	
 
 	@Then("The user should able to see error message")
 	public void the_user_should_able_to_see_error_message() {

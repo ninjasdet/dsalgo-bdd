@@ -211,11 +211,11 @@ public class ArrayStepDefinition {
 	     throw new io.cucumber.java.PendingException();
 	 }
 
-	 @When("The user clicks the Run Button after entering {int} from {string}")
-	 public void the_user_clicks_the_run_button_after_entering_from(Integer int1, String string) {
-	     // Write code here that turns the phrase above into concrete actions
-	     throw new io.cucumber.java.PendingException();
-	 }
+//	 @When("The user clicks the Run Button after entering {int} from {string}")
+//	 public void the_user_clicks_the_run_button_after_entering_from(Integer int1, String string) {
+//	     // Write code here that turns the phrase above into concrete actions
+//	     throw new io.cucumber.java.PendingException();
+//	 }
 
 	 @Then("The user should able to see an error message in alert window of Array")
 	 public void the_user_should_able_to_see_an_error_message_in_alert_window_of_array() {
