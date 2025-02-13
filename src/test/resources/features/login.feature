@@ -21,7 +21,7 @@ Scenario Outline: Login scenario with different sets of data
       | SignInDetails |     5 |
       | SignInDetails |     6 |
       | SignInDetails |     7 |
-      #
+
 Scenario:SignOut
 Given The user is in the Home page after Sign in
 When The user clicks Sign out

@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -19,6 +21,7 @@ public class DriverManager {
 	{
 		//if (driver == null) {
 			//browser = ConfigReader.getProperty("browser");
+
 			boolean headless = Boolean.parseBoolean(ConfigReader.getProperty("headless"));
 
 			switch (browser.toLowerCase()) {
@@ -35,10 +38,16 @@ public class DriverManager {
 				driver = new ChromeDriver(chromeOptions);
 				break;
 
-//                case "firefox":
-//                    WebDriverManager.firefoxdriver().setup();
-//                    driver = new FirefoxDriver();
-//                    break;
+                case "firefox":
+                    WebDriverManager.firefoxdriver().setup();
+                    FirefoxOptions firefoxOptions = new FirefoxOptions();
+                    if (headless) {
+                        firefoxOptions.addArguments("--headless");
+                        firefoxOptions.addArguments("--disable-gpu");
+                        firefoxOptions.addArguments("--window-size=1920,1080");
+                    }
+                    driver = new FirefoxDriver(firefoxOptions);
+                    break;
 			case "edge":
 				String firefoxDriverPath = ConfigReader.getProperty("msedgedriver.path");
 				 WebDriverManager.firefoxdriver().setup();
@@ -84,3 +93,4 @@ public class DriverManager {
 	}
 
 }
+

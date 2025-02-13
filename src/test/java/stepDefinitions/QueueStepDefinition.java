@@ -35,25 +35,23 @@ public class QueueStepDefinition {
 	public void the_user_clicks_the_getting_started_button_in_the_queue_panel_or_the_user_selects_the_queue_item_from_the_drop_down_menu() {
 		queuePage.getStartQueue();
 		LoggerLoad.info("user clicked get started button");
+
 	}
 
 	@Then("The user is directed to the Queue Data Structure Page")
 	public void the_user_is_directed_to_the_queue_data_structure_page() {
+
 		Assert.assertTrue(loginPage.getCurrentUrl().contains("queue"), "In Queue page");
 		LoggerLoad.info("Redirected to Queue page");
+
 	}
 
 	@Given("The user is in the Queue page after Sign in")
 	public void the_user_is_in_the_queue_page_after_sign_in() {
+
 		loginPage.getHomeURL();
 		queuePage.getStartQueue();
 		LoggerLoad.info("in Queue page");
-	}
-
-	@When("The user clicks Implementation of Queue in Python button")
-	public void the_user_clicks_implementation_of_queue_in_python_button() {
-		queuePage.clickImplementationQueuePython();
-		LoggerLoad.info("in implementation of queue in python");
 	}
 
 	@Then("The user should be redirected to Implementation of Queue in Python page")
@@ -310,9 +308,16 @@ public class QueueStepDefinition {
 
 	@Then("the user should be redirected to the Practice Questions page of queue")
 	public void the_user_should_be_redirected_to_the_practice_questions_page_of_queue() {
-		Assert.assertTrue(loginPage.getCurrentUrl().contains("practice"),"User is not redirected to the Practice page.");
+		Assert.assertTrue(loginPage.getCurrentUrl().contains("practice"),
+				"User is not redirected to the Practice page.");
 		LoggerLoad.info("redirected to Practice page");
 
+	}
+
+	@When("The user clicks Implementation of Queue in Python button")
+	public void the_user_clicks_implementation_of_queue_in_python_button() {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
 	}
 
 }
