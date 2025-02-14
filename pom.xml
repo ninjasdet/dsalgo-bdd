@@ -104,9 +104,39 @@
 			<artifactId>extentreports</artifactId>
 			<version>5.1.2</version>
 		</dependency>
+<!-- https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter -->
+<dependency>
+    <groupId>tech.grasshopper</groupId>
+    <artifactId>extentreports-cucumber7-adapter</artifactId>
+    <version>1.14.0</version>
+</dependency>
 
 	</dependencies>
 	
-	
+	<build>
+	<plugins>
+	<plugin>
+	<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.5.2</version>
+<configuration>
+<suiteXmlFiles>
+<suiteXmlFile>testng.xml</suiteXmlFile>
+</suiteXmlFiles>
+
+<properties>
+<dataproviderthreadcount>5</dataproviderthreadcount>
+<parallel>tests</parallel>
+<threadCount>5</threadCount>
+</properties>
+<systemPropertyVariables>
+<browser>Chrome</browser>
+</systemPropertyVariables>
+</configuration>
+</plugin>
+	</plugins>
+	</build>
 
 </project>
