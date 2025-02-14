@@ -1,5 +1,6 @@
 package testRunners;
 
+
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 
@@ -11,14 +12,15 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import utilities.DriverManager;
 
-@CucumberOptions(plugin = { "pretty", "html:target/sridevi.html", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm" },
+
+
+@CucumberOptions(plugin = { "pretty", "html:target/DsAlgoReports.html", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm" },
 // reporting purpose
 monochrome = true, // console output color
-tags="@Homepage or @LoginPage or @Stackpage or @Queuepage",
+tags="@GraphDatastructure",
 features = { "src/test/resources/features" }, // location of feature files
 glue = { "stepDefinitions", "hooks" }
 )
-//@Homepage or @LoginPage or @Stackpage
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 

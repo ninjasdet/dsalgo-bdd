@@ -48,6 +48,7 @@ public class StackStepDefinition {
 		loginPage.getHomeURL();
 		stackPage.getStartStack();
 		LoggerLoad.info("in stack page");
+
 	}
 
 	@When("The user clicks Operations in Stack button")
@@ -78,7 +79,6 @@ public class StackStepDefinition {
 
 	@Then("The user should be redirected to a page having a try Editor with a Run button to test of Stack page")
 	public void the_user_should_be_redirected_to_a_page_having_a_try_editor_with_a_run_button_to_test_of_stack_page() {
-
 		Assert.assertTrue(loginPage.getCurrentUrl().contains("tryEditor"), "User is not on tryEditor page of ");
 		LoggerLoad.info("redirected to a page having a try Editor");
 	}
@@ -109,6 +109,7 @@ public class StackStepDefinition {
 
 	@Then("The user should able to see an error message in alert window of Stack page")
 	public void the_user_should_able_to_see_an_error_message_in_alert_window_of_stack_page() {
+
 		
 	    
 		
@@ -129,8 +130,10 @@ public class StackStepDefinition {
 	    
 	
 
+
 	@Then("The user should able to see output in the console of Stack")
 	public void the_user_should_able_to_see_output_in_the_console_of_stack() {
+
 		String output = stackPage.getConsoleOutput();
 		Assert.assertFalse(output.isEmpty(), "Console output should not be empty, but it is.");
 		LoggerLoad.info("output in the console of queue");
@@ -139,6 +142,7 @@ public class StackStepDefinition {
 
 	@Given("The user is on the Tryeditor of Operations in Stack page")
 	public void the_user_is_on_the_tryeditor_of_operations_in_stack_page() {
+
 		stackPage.gettryEditorURL();
 		LoggerLoad.info("on the Tryeditor of Operations in Stack page");
 
@@ -146,27 +150,33 @@ public class StackStepDefinition {
 
 	@When("The user click on the Back arrow on top Operations in Stack page")
 	public void the_user_click_on_the_back_arrow_on_top_operations_in_stack_page() {
+
 		stackPage.getBackOPS();
 		stackPage.getoptsSlackURL();
 		LoggerLoad.info("clicked on the Back arrow");
+
 	}
 
 	@Then("The user should be redirected back to Operations in Stack page.")
 	public void the_user_should_be_redirected_back_to_operations_in_stack_page() {
 		Assert.assertTrue(loginPage.getCurrentUrl().contains("operations-in-stack"), "not in operations_in_stack_page");
 		LoggerLoad.info("redirected back to Operations in Stack page");
+
 	}
 
 	@When("The user clicks Implementation button")
 	public void the_user_clicks_implementation_button() {
+
 		stackPage.Implementation();
 		LoggerLoad.info("Clicked the Implementation button");
+
 	}
 
 	@Then("The user should be redirected to Implementation page")
 	public void the_user_should_be_redirected_to_implementation_page() {
 		Assert.assertTrue(loginPage.getCurrentUrl().contains("implementation"), "not in implementation");
 		LoggerLoad.info("redirected to Implementation page");
+
 	}
 
 	@Given("The user is on the Implementation page")
@@ -175,13 +185,14 @@ public class StackStepDefinition {
 		stackPage.getStartStack();
 		stackPage.Implementation();
 		LoggerLoad.info("on the Implementation page");
-
 	}
 
 	@When("The user clicks Try Here button in Implementation page")
 	public void the_user_clicks_try_here_button_in_implementation_page() {
+
 		stackPage.clickTryHere();
 		LoggerLoad.info("clicked Try Here button in Implementation page");
+
 	}
 
 	@Given("The user is on the Tryeditor of Implementation page")
@@ -194,70 +205,87 @@ public class StackStepDefinition {
 
 	@When("The user click on the Back arrow on top of Implementation page")
 	public void the_user_click_on_the_back_arrow_on_top_of_implementation_page() {
+
 		stackPage.getBackImplementation();
 		LoggerLoad.info("clicked on the Back arrow on top of Implementation page");
+
 	}
 
 	@Then("The user should be redirected back to Implementation page.")
 	public void the_user_should_be_redirected_back_to_implementation_page() {
 		Assert.assertTrue(loginPage.getCurrentUrl().contains("implementation"), "not in implementation");
 		LoggerLoad.info("redirected back to Implementation page");
+
 	}
 
 	@When("The user clicks Applications button")
 	public void the_user_clicks_applications_button() {
+
 		stackPage.applications();
 		LoggerLoad.info("clicked Applications button");
+
 	}
 
 	@Then("The user should be redirected to Applications page")
 	public void the_user_should_be_redirected_to_applications_page() {
 		Assert.assertTrue(loginPage.getCurrentUrl().contains("applications"), "not in applications");
 		LoggerLoad.info("Redirected to Applications page");
+
 	}
 
 	@Given("The user is on the Applications page")
 	public void the_user_is_on_the_applications_page() {
+
 		loginPage.getHomeURL();
 		stackPage.getStartStack();
 		stackPage.applications();
 		LoggerLoad.info("On the Applications page");
+
 	}
 
 	@When("The user clicks Try Here button in Applications page")
 	public void the_user_clicks_try_here_button_in_applications_page() {
 		stackPage.clickTryHere();  
 		LoggerLoad.info("On the Applications page");
+
 	}
 
 	@Given("The user is on the Tryeditor of Applications page")
 	public void the_user_is_on_the_tryeditor_of_applications_page() {
+
 		stackPage.gettryEditorURL();
 		LoggerLoad.info("on the Tryeditor of Applications page");
+
 	}
 
 	@When("The user click on the Back arrow on top of Applications page")
 	public void the_user_click_on_the_back_arrow_on_top_of_applications_page() {
+
 		stackPage.getBackApplication();
 		LoggerLoad.info("clicked on the Back arrow on top of Applications page");
+
 	}
 
 	@Then("The user should be redirected back to Applications page.")
 	public void the_user_should_be_redirected_back_to_applications_page() {
 		Assert.assertTrue(loginPage.getCurrentUrl().contains("applications"), "not in applications");
 		LoggerLoad.info("redirected back to Applications page");
+
 	}
 
 	@Given("The user is in the Stack page")
 	public void the_user_is_in_the_stack_page() {
+
 		loginPage.getHomeURL();
 		stackPage.getStartStack();
 		stackPage.applications();
 		LoggerLoad.info("in the Stack page");
+
 	}
 
 	@When("The user clicks Practice Questions button")
 	public void the_user_clicks_practice_questions_button() {
+
 		stackPage.clickPracticeQuestionsButton();
 		LoggerLoad.info("clicked Practice Questions button");
 
@@ -265,7 +293,8 @@ public class StackStepDefinition {
 
 	@Then("The user should be redirected to Practice page")
 	public void the_user_should_be_redirected_to_practice_page() {
-		Assert.assertTrue(loginPage.getCurrentUrl().contains("practice"),"User is not redirected to the Practice page.");
+		Assert.assertTrue(loginPage.getCurrentUrl().contains("practice"),
+				"User is not redirected to the Practice page.");
 		LoggerLoad.info("redirected to Practice page");
 	}
 
