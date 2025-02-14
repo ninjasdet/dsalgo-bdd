@@ -20,7 +20,7 @@ Feature: Graph Data Structure Navigation
     When the user clicks the Try here button of Graph page
     Then the user should be redirected to a page having a try Editor with a Run button to test for graph
 
-
+  
 	Scenario Outline: Output Testing with different sets of invalid data in Graph page
      Given The user is in the tryEditor page of Graph
      When For Graph user clicks the Run button after entering <RowNumber> from "<SheetName>"
@@ -31,7 +31,7 @@ Feature: Graph Data Structure Navigation
 
       | TryEditor |     2 | 
       | TryEditor |     3 | 
- 
+  
   Scenario Outline: Output Testing with different sets of valid data in Graph Page
      Given The user is in the tryEditor page of Graph
      When For Graph user clicks the Run button after entering <RowNumber> from "<SheetName>"

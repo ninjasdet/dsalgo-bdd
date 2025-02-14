@@ -1,6 +1,9 @@
 package stepDefinitions;
 
 
+import java.io.IOException;
+
+import org.openqa.selenium.TimeoutException;
 import org.testng.Assert;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -8,6 +11,8 @@ import io.cucumber.java.en.When;
 import pageObjects.DataStructurePage;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
+import pageObjects.StackPage;
+import utilities.ConfigReader;
 import utilities.ExcelReader;
 import utilities.Helper;
 import utilities.LoggerLoad;
@@ -17,13 +22,14 @@ public class DataStructureStepDefinition {
 	LoginPage loginPage = new LoginPage();
 	HomePage homePage = new HomePage();
 	Helper helper = new Helper();
+	StackPage stackpage=new StackPage();
 	ExcelReader excelUtils;
 
 	@Given("For DataStructure the user signs in to dsAlgo Portal")
 	public void the_user_signs_in_to_ds_algo_portal() {
 		loginPage.getHomeURL();
 		loginPage.getLoginBtn();
-		helper.performLogin("SignInDetails", 7);
+		stackpage.performLogin("SignInDetails", 7);
 	}
 
 //	@Given("the user is in the Home page after signing in")
@@ -86,22 +92,44 @@ public class DataStructureStepDefinition {
 	}
 	
 	@When("For Datastructure the user clicks the Run button after entering {int} from {string}")
-	public void for_datastructure_the_user_clicks_the_run_button_after_entering_from(Integer int1, String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void for_datastructure_the_user_clicks_the_run_button_after_entering_from(Integer RowNumber, String sheet) {
+		try {
+
+			excelUtils = new ExcelReader(ConfigReader.getProperty("excelPath"));
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+		sheet = "TryEditor";
+		String invalidCode = excelUtils.getCellData(sheet, RowNumber - 1, 0);
+
+		stackpage.enterCode(invalidCode);
+
+		stackpage.clickRunButton();
+		LoggerLoad.info("user clicked the Run button");
 	}
 
 
 	@Then("The user should able to see an error message in the alert window of time complexity.")
 	public void the_user_should_able_to_see_an_error_message_in_the_alert_window_of_time_complexity() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+		try {
+
+			stackpage.alert();
+			String actualAlertText = stackpage.alert().getText();
+			Assert.assertFalse(actualAlertText.isEmpty(), "Console output should not be empty, but it is.");
+
+			stackpage.alert().accept();
+		} catch (TimeoutException e) {
+
+			Assert.fail("Expected an alert with an error message, but no alert appeared.");
+		}
 	}
 
 	@Then("The user should able to see output in the console")
 	public void the_user_should_able_to_see_output_in_the_console() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+		String output = stackpage.getConsoleOutput();
+		Assert.assertFalse(output.isEmpty(), "Console output should not be empty, but it is.");
+		LoggerLoad.info("output in the console of DataStructure");
 	}
 
 	@When("The user click on the Back arrow on top of Time Complexity")
