@@ -5,7 +5,7 @@ Feature: Stack Data Structure Navigation
     Given For stack the user signs in to dsAlgo Portal
     
   Scenario: Verify that user is able to navigate to Stack data structure page
-   # Given For stack the user is in the Home page after Sign in
+  
     When The user clicks the Getting Started button in the Stack Panel Or The user selects the Stack item from the drop-down menu
     Then The user is directed to the Stack Data Structure Page
     
@@ -18,7 +18,7 @@ Feature: Stack Data Structure Navigation
     Given The user is on the Operations in Stack page
     When The user clicks Try Here button in Operations in Stack page
     Then The user should be redirected to a page having a try Editor with a Run button to test of Stack page
- @Stackpage1    
+     
     Scenario Outline: Output Testing with different sets of invalid data in Operations in Stack page
      Given The user is in the tryEditor page of Stack
      When For stack the user clicks the Run button after entering <RowNumber> from "<SheetName>"
@@ -29,7 +29,7 @@ Feature: Stack Data Structure Navigation
       
       | TryEditor     |     2 		| 
       | TryEditor     |     3 		| 
- @Stackpage2     
+      
    Scenario Outline: Output Testing with different sets of valid data Operations in Stack page
      Given The user is in the tryEditor page of Stack
      When For stack the user clicks the Run button after entering <RowNumber> from "<SheetName>"
