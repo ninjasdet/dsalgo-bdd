@@ -2,6 +2,8 @@ package stepDefinitions;
 
 import java.io.IOException;
 
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.TimeoutException;
 import org.testng.Assert;
 
 import io.cucumber.java.en.Given;
@@ -28,10 +30,7 @@ public class StackStepDefinition {
 		stackPage.performLogin("SignInDetails", 7);
 	}
 
-//	@Given("For stack the user is in the Home page after Sign in")
-//	public void for_stack_the_user_is_in_the_home_page_after_sign_in() {
-//		loginPage.getHomeURL();
-//	}
+
 	@When("The user clicks the Getting Started button in the Stack Panel Or The user selects the Stack item from the drop-down menu")
 	public void the_user_clicks_the_getting_started_button_in_the_stack_panel_or_the_user_selects_the_stack_item_from_the_drop_down_menu() {
 		stackPage.getStartStack();
@@ -90,7 +89,7 @@ public class StackStepDefinition {
 	}
 
 	@When("For stack the user clicks the Run button after entering {int} from {string}")
-	public void for_stack_the_user_clicks_the_run_button_after_entering_from(Integer RowNumber, String string) {
+	public void for_stack_the_user_clicks_the_run_button_after_entering_from(Integer RowNumber, String sheet) {
 		try {
 
 			excelUtils = new ExcelReader(ConfigReader.getProperty("excelPath"));
@@ -98,9 +97,11 @@ public class StackStepDefinition {
 
 			e.printStackTrace();
 		}
-		String invalidCode = excelUtils.getCellData("TryEditor", RowNumber - 1, 0);
-
+		sheet = "TryEditor";
+		String invalidCode = excelUtils.getCellData(sheet, RowNumber - 1, 0);
+		
 		stackPage.enterCode(invalidCode);
+			
 		stackPage.clickRunButton();
 		LoggerLoad.info("user clicked the Run button");
 
@@ -108,16 +109,31 @@ public class StackStepDefinition {
 
 	@Then("The user should able to see an error message in alert window of Stack page")
 	public void the_user_should_able_to_see_an_error_message_in_alert_window_of_stack_page() {
-		System.out.println("testing");
+		
+	    
+		
+	    try {
+	    	
+	    	stackPage.alert();
+		    String actualAlertText = stackPage.alert().getText();
+		    Assert.assertFalse(actualAlertText.isEmpty(), "Console output should not be empty, but it is.");
+		   
+		   // String expectedAlertText = "SyntaxError: bad input on line 1"; 
 
+		    stackPage.alert().accept();
+	    } catch (TimeoutException e) {
+	        
+	        Assert.fail("Expected an alert with an error message, but no alert appeared.");
+	    }
 	}
+	    
+	
 
 	@Then("The user should able to see output in the console of Stack")
 	public void the_user_should_able_to_see_output_in_the_console_of_stack() {
 		String output = stackPage.getConsoleOutput();
-		// Assert.assertTrue(output.isEmpty(), "Expected output in console, but found
-		// empty.");
-		System.out.println("Output: " + output);
+		Assert.assertFalse(output.isEmpty(), "Console output should not be empty, but it is.");
+		LoggerLoad.info("output in the console of queue");
 
 	}
 

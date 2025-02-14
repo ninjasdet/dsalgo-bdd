@@ -45,7 +45,8 @@ public class ExcelReader {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "Error reading cell";
+			
+			return "";
 		}
 	}
 }

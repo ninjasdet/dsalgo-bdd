@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import java.io.IOException;
 
+import org.openqa.selenium.TimeoutException;
 import org.testng.Assert;
 
 import io.cucumber.java.en.Given;
@@ -39,7 +40,7 @@ public class QueueStepDefinition {
 
 	@Then("The user is directed to the Queue Data Structure Page")
 	public void the_user_is_directed_to_the_queue_data_structure_page() {
-		Assert.assertTrue(loginPage.getCurrentUrl().contains("queue"), "In Queue page");
+		Assert.assertTrue(loginPage.getCurrentUrl().contains("queue"), "not In Queue page");
 		LoggerLoad.info("Redirected to Queue page");
 	}
 
@@ -91,7 +92,7 @@ public class QueueStepDefinition {
 	}
 
 	@When("For queue The user clicks the Run button after entering {int} from {string}")
-	public void for_queue_the_user_clicks_the_run_button_after_entering_from(Integer RowNumber, String string) {
+	public void for_queue_the_user_clicks_the_run_button_after_entering_from(Integer RowNumber, String sheet) {
 		try {
 
 			excelUtils = new ExcelReader(ConfigReader.getProperty("excelPath"));
@@ -99,18 +100,34 @@ public class QueueStepDefinition {
 
 			e.printStackTrace();
 		}
-		String invalidCode = excelUtils.getCellData("TryEditor", RowNumber - 1, 0);
-
+		sheet = "TryEditor";
+		String invalidCode = excelUtils.getCellData(sheet, RowNumber - 1, 0);
+		
 		stackPage.enterCode(invalidCode);
+			
 		stackPage.clickRunButton();
 		LoggerLoad.info("user clicked the Run button");
 
 	}
 
+	
+
 	@Then("In alert window of queue page The user should able to see an error message in alert window")
 	public void in_alert_window_of_queue_page_the_user_should_able_to_see_an_error_message_in_alert_window() {
-		System.out.println("testing");
+
+	    try {
+	    	
+	    	stackPage.alert();
+		    String actualAlertText = stackPage.alert().getText();
+		    Assert.assertFalse(actualAlertText.isEmpty(), "Console output should not be empty, but it is.");
+		  
+		    stackPage.alert().accept();
+	    } catch (TimeoutException e) {
+	        
+	        Assert.fail("Expected an alert with an error message, but no alert appeared.");
+	    }
 	}
+	
 
 	@Given("The user is on the Tryeditor of Implementation of Queue in Python page")
 	public void the_user_is_on_the_tryeditor_of_implementation_of_queue_in_python_page() {
@@ -258,9 +275,7 @@ public class QueueStepDefinition {
 
 	@When("The user clicks Try Here button in Queue Operations page")
 	public void the_user_clicks_try_here_button_in_queue_operations_page() {
-//		queuePage.gettryEditorURLqueue();
-//		queuePage.clickImplementationCollectionsDeque();
-//		queuePage.clickQueueOperationsButton();
+
 		stackPage.clickTryHere();
 		LoggerLoad.info("clicked Try Here button");
 	}
@@ -268,9 +283,7 @@ public class QueueStepDefinition {
 	@Then("The user should able to see output in the console of queue")
 	public void the_user_should_able_to_see_output_in_the_console_of_queue() {
 		String output = stackPage.getConsoleOutput();
-		// Assert.assertTrue(output.isEmpty(), "Expected output in console, but found
-		// empty.");
-		System.out.println("Output: " + output);
+		Assert.assertFalse(output.isEmpty(), "Console output should not be empty, but it is.");
 		LoggerLoad.info("output in the console of queue");
 	}
 
@@ -310,7 +323,8 @@ public class QueueStepDefinition {
 
 	@Then("the user should be redirected to the Practice Questions page of queue")
 	public void the_user_should_be_redirected_to_the_practice_questions_page_of_queue() {
-		Assert.assertTrue(loginPage.getCurrentUrl().contains("practice"),"User is not redirected to the Practice page.");
+		Assert.assertTrue(loginPage.getCurrentUrl().contains("practice"),
+				"User is not redirected to the Practice page.");
 		LoggerLoad.info("redirected to Practice page");
 
 	}

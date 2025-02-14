@@ -18,7 +18,7 @@ Feature: Stack Data Structure Navigation
     Given The user is on the Operations in Stack page
     When The user clicks Try Here button in Operations in Stack page
     Then The user should be redirected to a page having a try Editor with a Run button to test of Stack page
-    
+ @Stackpage1    
     Scenario Outline: Output Testing with different sets of invalid data in Operations in Stack page
      Given The user is in the tryEditor page of Stack
      When For stack the user clicks the Run button after entering <RowNumber> from "<SheetName>"
@@ -27,9 +27,9 @@ Feature: Stack Data Structure Navigation
        Examples: 
       | SheetName     | RowNumber |
       
-      | TryEditor     |     1 		| 
       | TryEditor     |     2 		| 
-      
+      | TryEditor     |     3 		| 
+ @Stackpage2     
    Scenario Outline: Output Testing with different sets of valid data Operations in Stack page
      Given The user is in the tryEditor page of Stack
      When For stack the user clicks the Run button after entering <RowNumber> from "<SheetName>"
@@ -38,7 +38,7 @@ Feature: Stack Data Structure Navigation
        Examples: 
       | SheetName  | RowNumber |
       
-      | TryEditor  |     3     | 
+      | TryEditor  |     4     | 
       
     Scenario: Verify that the user shoud be back to Operations in Stack page
     Given The user is on the Tryeditor of Operations in Stack page
@@ -63,8 +63,8 @@ Feature: Stack Data Structure Navigation
        Examples: 
       | SheetName  | RowNumber |
 
-      | TryEditor  |     1     | 
       | TryEditor  |     2     | 
+      | TryEditor  |     3     | 
       
    Scenario Outline: Output Testing with different sets of valid data in Implementation page
      Given The user is in the tryEditor page of Stack
@@ -74,7 +74,7 @@ Feature: Stack Data Structure Navigation
        Examples: 
       | SheetName  | RowNumber |
       
-      | TryEditor  |     3     | 
+      | TryEditor  |     4     | 
       
    Scenario: Verify that the user shoud be back to Implementation page
     Given The user is on the Tryeditor of Implementation page
@@ -99,8 +99,8 @@ Feature: Stack Data Structure Navigation
        Examples: 
       | SheetName  | RowNumber |
 
-      | TryEditor  |     1     | 
       | TryEditor  |     2     | 
+      | TryEditor  |     3     | 
       
    Scenario Outline: Output Testing with different sets of valid data in Applications page
      Given The user is in the tryEditor page of Stack
@@ -110,7 +110,7 @@ Feature: Stack Data Structure Navigation
        Examples: 
       | SheetName  | RowNumber |
       
-      | TryEditor  |     3     | 
+      | TryEditor  |     4     | 
     Scenario: Verify that the user shoud be back to Applications page
     Given The user is on the Tryeditor of Applications page
     When The user click on the Back arrow on top of Applications page
