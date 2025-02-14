@@ -1,4 +1,3 @@
-
 @DataStructuresPage
 Feature: Data Structure Navigation
  
@@ -30,7 +29,7 @@ Feature: Data Structure Navigation
 
       | TryEditor |     2 | 
       | TryEditor |     3 | 
-      
+     
   	Scenario Outline: Output Testing with different sets of valid data in Time Complexity
      Given The user is in the tryEditor page of Time Complexity
      When  For Datastructure the user clicks the Run button after entering <RowNumber> from "<SheetName>"

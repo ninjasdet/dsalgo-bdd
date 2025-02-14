@@ -157,7 +157,7 @@ public class TreePage {
 	}
 
 	public void tryherePage() {
-		wait.until(ExpectedConditions.elementToBeClickable(tryherebutton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(tryhereButn)).click();
 	}
 
 	// Method to navigate to overviewOfTree
