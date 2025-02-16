@@ -1,15 +1,9 @@
 package pageObjects;
 
-<<<<<<< HEAD
-public class Arraypage {
 
-}
-=======
     import java.io.IOException;
 import java.time.Duration;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -27,6 +21,7 @@ import utilities.LoggerLoad;
 	public class Arraypage {
 		
 		
+
 
 		public WebDriver driver=DriverManager.getDriver();
 	    LoginPage loginPage = new LoginPage();
@@ -427,4 +422,3 @@ import utilities.LoggerLoad;
 	
 
 
->>>>>>> master

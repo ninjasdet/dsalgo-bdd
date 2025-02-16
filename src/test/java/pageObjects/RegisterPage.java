@@ -1,10 +1,5 @@
 package pageObjects;
 
-<<<<<<< HEAD
-public class RegisterPage {
-
-}
-=======
     import java.time.Duration;
 
 	import org.openqa.selenium.WebDriver;
@@ -185,4 +180,3 @@ import utilities.ExcelReader;
 
 
 
->>>>>>> master

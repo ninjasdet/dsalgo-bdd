@@ -1,11 +1,5 @@
 package pageObjects;
 
-<<<<<<< HEAD
-public class LinkedListPage {
-
-}
-=======
-import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.Alert;
@@ -16,7 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import utilities.ConfigReader;
 import utilities.DriverManager;
 import utilities.ExcelReader;
 import utilities.LoggerLoad;
@@ -299,4 +292,3 @@ public class LinkedListPage {
 
 
 
->>>>>>> master
