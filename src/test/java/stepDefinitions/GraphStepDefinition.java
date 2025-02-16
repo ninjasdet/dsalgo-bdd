@@ -1,11 +1,8 @@
 package stepDefinitions;
 
-
-
 import java.io.IOException;
-
+import org.openqa.selenium.TimeoutException;
 import org.testng.Assert;
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -24,7 +21,7 @@ public class GraphStepDefinition {
 	HomePage homePage = new HomePage();
 	GraphPage graphPage = new GraphPage();
 	Helper helper = new Helper();
-	StackPage stackpage=new StackPage();
+	StackPage stackpage = new StackPage();
 	ExcelReader excelUtils;
 
 	GraphPage graphpage = new GraphPage();
@@ -88,9 +85,9 @@ public class GraphStepDefinition {
 	public void the_user_is_in_the_try_editor_page_of_graph() {
 		graphpage.gettryEditorPage();
 	}
-	
+
 	@When("For Graph user clicks the Run button after entering {int} from {string}")
-	public void for_graph_user_clicks_the_run_button_after_entering_from(Integer RowNumber, String string) {
+	public void for_graph_user_clicks_the_run_button_after_entering_from(Integer RowNumber, String sheet) {
 		try {
 
 			excelUtils = new ExcelReader(ConfigReader.getProperty("excelPath"));
@@ -98,43 +95,39 @@ public class GraphStepDefinition {
 
 			e.printStackTrace();
 		}
-		String invalidCode = excelUtils.getCellData("TryEditor", RowNumber - 1, 0);
+		sheet = "TryEditor";
+		String invalidCode = excelUtils.getCellData(sheet, RowNumber - 1, 0);
 
 		stackpage.enterCode(invalidCode);
+
 		stackpage.clickRunButton();
 		LoggerLoad.info("user clicked the Run button");
-
 	}
 
-//	@When("The user clicks the Run Button after entering {int} from {string}")
-//	public void the_user_clicks_the_run_button_after_entering_from_a(Integer rowNumber, String sheetName) {
-//		graphpage.enterCodeAndRun(sheetName, rowNumber);
-//	}
-	
-//	@When("The user enters valid code")
-//	public void the_user_enters_valid_code() {
-//	    graphpage.validinputcode();
-//	}
-	
 	@Then("The user should able to see the output in a console for graph")
 	public void the_user_should_able_to_see_the_output_in_a_console_for_graph() {
-		
-		String output = graphpage.getConsoleOutput();
-		Assert.assertTrue(output.isEmpty(), "Expected output in console, but found empty.");
-		LoggerLoad.info("the output is not displayed on console");
-		
-//		String consoleOutput = graphPage.getConsoleOutput();
-//        if (consoleOutput.isEmpty()) {
-//            throw new AssertionError("Output is not displayed in the console.");
-//        System.out.println("Output from console: " + consoleOutput);
-    }
+
+		String output = stackpage.getConsoleOutput();
+		Assert.assertFalse(output.isEmpty(), "Console output should not be empty, but it is.");
+		LoggerLoad.info("output in the console of Graph");
+
+	}
 
 	@Then("The user should able to see an error message in  alert window of graph")
 	public void the_user_should_able_to_see_an_error_message_in_alert_window_of_graph() {
-		
-               LoggerLoad.info("the user not saw error message in an alert");
-	}
 
+		try {
+
+			stackpage.alert();
+			String actualAlertText = stackpage.alert().getText();
+			Assert.assertFalse(actualAlertText.isEmpty(), "Console output should not be empty, but it is.");
+
+			stackpage.alert().accept();
+		} catch (TimeoutException e) {
+
+			Assert.fail("Expected an alert with an error message, but no alert appeared.");
+		}
+	}
 
 	@When("The user click on the Back arrow on top of Graph page")
 	public void the_user_click_on_the_back_arrow_on_top_of_graph_page() {
@@ -165,7 +158,7 @@ public class GraphStepDefinition {
 
 	@Then("The user should able to see output in the console of graph representation")
 	public void the_user_should_able_to_see_output_in_the_console_of_graph_representation() {
-	
+
 		LoggerLoad.info("the output is not displayed on console");
 	}
 
@@ -205,11 +198,11 @@ public class GraphStepDefinition {
 	public void the_user_clicks_on_the_back_arrow_at_the_top_of_graph_page() {
 		graphpage.getBackApplication();
 	}
-	
+
 //	@Given("the user is in the Graph Page")
 //	public void the_user_is_in_the_graph_page() {
 //	    // Write code here that turns the phrase above into concrete actions
 //	    throw new io.cucumber.java.PendingException();
 //	}
-	
+
 }

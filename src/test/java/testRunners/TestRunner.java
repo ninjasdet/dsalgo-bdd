@@ -14,10 +14,10 @@ import utilities.DriverManager;
 
 
 
-@CucumberOptions(plugin = { "pretty", "html:target/DsAlgoReports.html", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm" },
+@CucumberOptions(plugin = { "pretty", "html:target/DsAlgoReports.html", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 // reporting purpose
 monochrome = true, // console output color
-tags="@GraphDatastructure",
+tags="@TreeDataStructure",
 features = { "src/test/resources/features" }, // location of feature files
 glue = { "stepDefinitions", "hooks" }
 )
