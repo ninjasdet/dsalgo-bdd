@@ -1,130 +1,208 @@
 package stepDefinitions;
 
+import java.io.IOException;
+import org.openqa.selenium.TimeoutException;
+import org.testng.Assert;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageObjects.GraphPage;
+import pageObjects.HomePage;
+import pageObjects.LoginPage;
+import pageObjects.StackPage;
+import utilities.ConfigReader;
+import utilities.ExcelReader;
+import utilities.Helper;
+import utilities.LoggerLoad;
 
 public class GraphStepDefinition {
-	
-	@Given("the user signs in to dsAlgo Portal")
-	public void the_user_signs_in_to_ds_algo_portal() {
-	   
+
+	LoginPage loginPage = new LoginPage();
+	HomePage homePage = new HomePage();
+	GraphPage graphPage = new GraphPage();
+	Helper helper = new Helper();
+	StackPage stackpage = new StackPage();
+	ExcelReader excelUtils;
+
+	GraphPage graphpage = new GraphPage();
+
+	@Given("For graph the user signs in to dsAlgo Portal")
+	public void for_stack_the_user_signs_in_to_ds_algo_portal() {
+
+		loginPage.getHomeURL();
+		loginPage.getLoginBtn();
+		stackpage.performLogin("SignInDetails", 7);
 	}
 
-	@Given("the user is on the Home page after signing in")
-	public void the_user_is_on_the_home_page_after_signing_in() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@When("the user clicks the Get Started button in the Graph Panel or the user selects Graph item from the drop-down menu")
+	public void the_user_clicks_the_get_started_button_in_the_graph_panel_or_the_user_selects_graph_item_from_the_drop_down_menu() {
+		graphpage.clickGetStartedGraph();
 	}
 
-	@When("the user clicks the {string} button in the Graph Panel or the user selects {string} item from the drop-down menu")
-	public void the_user_clicks_the_button_in_the_graph_panel_or_the_user_selects_item_from_the_drop_down_menu(String string, String string2) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
+	@Then("the user is directed to the Graph Data Structure Page")
+	public void the_user_is_directed_to_the_graph_data_structure_page() {
 
-	@Then("the user is directed to the {string} Data Structure Page")
-	public void the_user_is_directed_to_the_data_structure_page(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		Assert.assertTrue(graphpage.isGraphPageDisplayed(), "Graph Data Structure Page is not displayed");
+		LoggerLoad.info("Ridirecting toGraph Data Structure Page ");
 	}
 
 	@Given("the user is in the Graph data structure page")
 	public void the_user_is_in_the_graph_data_structure_page() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		loginPage.getHomeURL();
+		graphpage.clickGetStartedGraph();
 	}
 
-	@When("the user clicks the {string} link")
-	public void the_user_clicks_the_link(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@When("the user clicks the Inside Graph link")
+	public void the_user_clicks_the_inside_graph_link() {
+		graphpage.clickInsideGraph();
 	}
 
-	@Then("the user navigates to the {string}")
-	public void the_user_navigates_to_the(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("the user navigates to the inside Graph page")
+	public void the_user_navigates_to_the_graph_page() throws InterruptedException {
+
+		Assert.assertTrue(loginPage.getCurrentUrl().contains("graph/graph/"), "Graph page is not navigated");
+		LoggerLoad.info("Ridirecting to inside Graph Data Structure Page ");
 	}
 
-	@Given("the user is in the {string} Page")
-	public void the_user_is_in_the_page(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Given("the user is in the Graph Page")
+	public void the_user_is_in_the_graph_page() {
+		graphpage.insideGrapghPage();
+
 	}
 
-	@When("the user clicks the {string} button")
-	public void the_user_clicks_the_button(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@When("the user clicks the Try here button of Graph page")
+	public void the_user_clicks_the_try_here_button_of_graph_page() {
+		graphpage.tryhereEditor();
 	}
 
-	@Then("the user should be redirected to a page having a try Editor with a Run button to test")
-	public void the_user_should_be_redirected_to_a_page_having_a_try_editor_with_a_run_button_to_test() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("the user should be redirected to a page having a try Editor with a Run button to test for graph")
+	public void the_user_should_be_redirected_to_a_page_having_a_try_editor_with_a_run_button_to_test_for_graph() {
+		Assert.assertTrue(loginPage.getCurrentUrl().contains("tryEditor"), "User is not on tryEditor page of ");
+		LoggerLoad.info("ridircting to treEditor page of Graph ");
 	}
 
-	@Given("The user is in the tryEditor page")
-	public void the_user_is_in_the_try_editor_page() {
-	  
+	@Given("The user is in the tryEditor page of Graph")
+	public void the_user_is_in_the_try_editor_page_of_graph() {
+		graphpage.gettryEditorPage();
 	}
 
-	@When("The user clicks the Run button after entering {int} from  {string}")
-	public void the_user_clicks_the_run_button_after_entering_from(Integer int1, String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@When("For Graph user clicks the Run button after entering {int} from {string}")
+	public void for_graph_user_clicks_the_run_button_after_entering_from(Integer RowNumber, String sheet) {
+		try {
+
+			excelUtils = new ExcelReader(ConfigReader.getProperty("excelPath"));
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+		sheet = "TryEditor";
+		String invalidCode = excelUtils.getCellData(sheet, RowNumber - 1, 0);
+
+		stackpage.enterCode(invalidCode);
+
+		stackpage.clickRunButton();
+		LoggerLoad.info("user clicked the Run button");
 	}
 
-	@Then("The user should able to see an error message in alert window")
-	public void the_user_should_able_to_see_an_error_message_in_alert_window() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("The user should able to see the output in a console for graph")
+	public void the_user_should_able_to_see_the_output_in_a_console_for_graph() {
+
+		String output = stackpage.getConsoleOutput();
+		Assert.assertFalse(output.isEmpty(), "Console output should not be empty, but it is.");
+		LoggerLoad.info("output in the console of Graph");
+
 	}
 
-	@Given("the user is on the {string} of Graph page")
-	public void the_user_is_on_the_of_graph_page(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("The user should able to see an error message in  alert window of graph")
+	public void the_user_should_able_to_see_an_error_message_in_alert_window_of_graph() {
+
+		try {
+
+			stackpage.alert();
+			String actualAlertText = stackpage.alert().getText();
+			Assert.assertFalse(actualAlertText.isEmpty(), "Console output should not be empty, but it is.");
+
+			stackpage.alert().accept();
+		} catch (TimeoutException e) {
+
+			Assert.fail("Expected an alert with an error message, but no alert appeared.");
+		}
 	}
 
-	@When("the user clicks on the {string} arrow on top")
-	public void the_user_clicks_on_the_arrow_on_top(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@When("The user click on the Back arrow on top of Graph page")
+	public void the_user_click_on_the_back_arrow_on_top_of_graph_page() {
+		graphpage.getBackApplication();
 	}
 
-	@Then("the user should be redirected to the {string} page")
-	public void the_user_should_be_redirected_to_the_page(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("the user should be redirected to the Graph page")
+	public void the_user_should_be_redirected_to_the_graph_page() {
+		Assert.assertTrue(loginPage.getCurrentUrl().contains("graph/graph/"), "Not insideGraphPage");
+		LoggerLoad.info("redirected back to inside Graph page");
 	}
 
-	@Given("the user is in the {string} data structure page")
-	public void the_user_is_in_the_data_structure_page(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-	@Given("the user is on the {string} of the {string} page")
-	public void the_user_is_on_the_of_the_page(String string, String string2) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@When("the user clicks the Graph Representations link")
+	public void the_user_clicks_the_graph_representations_link() {
+		graphpage.clickGraphRepresenation();
 	}
 
-	@When("the user clicks on the {string} arrow at the top")
-	public void the_user_clicks_on_the_arrow_at_the_top(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("the user should be redirected to the Graph Representations page")
+	public void the_user_should_be_redirected_to_the_graph_representations_page() {
+		Assert.assertTrue(graphpage.isGraphRepresenationDisplayed(), "Page is not navigated to Graph representaion");
+		LoggerLoad.info("redirecting to Graph Representation Page ");
 	}
-	
-	@Given("the user is in  {string} page")
-	public void the_user_is_in_page(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}	
 
+	@Given("the user is in the Graph Representations Page")
+	public void the_user_is_in_the_graph_representations_page() {
+		graphpage.gettryEditorURL();
+	}
 
+	@Then("The user should able to see output in the console of graph representation")
+	public void the_user_should_able_to_see_output_in_the_console_of_graph_representation() {
 
+		LoggerLoad.info("the output is not displayed on console");
+	}
 
+	@Given("the user is on the Tryeditor of the Graph Representations page")
+	public void the_user_is_on_the_tryeditor_of_the_graph_representations_page() {
+
+		graphpage.gettryEditorURL();
+		graphpage.tryhereEditor();
+	}
+
+	@When("the user clicks on the Back arrow at the top of Graph Representations page")
+	public void the_user_clicks_on_the_back_arrow_at_the_top_of_graph_representations_page() {
+		graphpage.getGraphRepreBack();
+	}
+
+	@When("the user clicks the Practice Questions link for Graph")
+	public void the_user_clicks_the_practice_questions_link() {
+		graphpage.clickPracticeQuestion();
+	}
+
+	@Then("the user should be redirected to the Practice Questions page of Graph page")
+	public void the_user_should_be_redirected_to_the_practice_questions_page_of_graph_page() {
+		Assert.assertTrue(loginPage.getCurrentUrl().contains("practice"),
+				"user not navigated to practise question page");
+		LoggerLoad.info("navigating to practice question page for graph ");
+
+	}
+
+	@Given("the user is in  practice questions page of Graph page")
+	public void the_user_is_in_practice_questions_page_of_graph_page() {
+		graphpage.clickGetStartedGraph();
+		graphpage.clickInsideGraph();
+		graphpage.clickPracticeQuestion();
+	}
+
+	@When("the user clicks on the Back arrow at the top of practice page")
+	public void the_user_clicks_on_the_back_arrow_at_the_top_of_graph_page() {
+		graphpage.getBackApplication();
+	}
+
+//	@Given("the user is in the Graph Page")
+//	public void the_user_is_in_the_graph_page() {
+//	    // Write code here that turns the phrase above into concrete actions
+//	    throw new io.cucumber.java.PendingException();
+//	}
 
 }

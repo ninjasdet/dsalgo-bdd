@@ -7,12 +7,20 @@ Background: Sign in
     Then The user should be redirected to the Sign in page      
       
       
+<<<<<<< HEAD
  Scenario Outline: Login scenario with different sets of data
+=======
+Scenario Outline: Login scenario with different sets of data
+>>>>>>> master
      Given The user is on the DS Algo Sign in Page
      When The user clicks the login button after entering <RowNumber> from  "<SheetName>"
      Then The ExpectedMessage will be displayed
      
+<<<<<<< HEAD
        Examples: 
+=======
+      Examples: 
+>>>>>>> master
       | SheetName     | RowNumber | 
 
       | SignInDetails |     2 | 
@@ -21,8 +29,16 @@ Background: Sign in
       | SignInDetails |     5 |
       | SignInDetails |     6 |
       | SignInDetails |     7 |
+<<<<<<< HEAD
       
 Scenario:
 Given The user is in the Home page after Sign in
 #When The user clicks Sign out
 #Then The user should be redirected to home page with message Logged out successfully
+=======
+
+Scenario:SignOut
+Given The user is in the Home page after Sign in
+When The user clicks Sign out
+Then The user should be redirected to home page with message Logged out successfully
+>>>>>>> master
