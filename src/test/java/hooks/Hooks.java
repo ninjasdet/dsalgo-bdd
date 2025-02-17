@@ -1,7 +1,10 @@
 package hooks;
 
+import java.util.Properties;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import utilities.ConfigReader;
 import utilities.DriverManager;
 import utilities.ScreenshotUtility;
 
@@ -9,23 +12,62 @@ import io.cucumber.java.Scenario;
 
 public class Hooks {
 
-	@Before
-	public void setup() {
-//    	String browser = ConfigReader.getProperty("browser");
-//		
-//		DriverManager.initializeDriver(browser);
-		DriverManager.getDriver();
-	}
+	private static Properties prop;
+	
+    @Before
+    public void beforeScenario() throws Throwable {
+        prop = ConfigReader.initializeProp();
+        String browser = ConfigReader.getBrowserType();
 
-	@After
+		
 
-	public void tearDown(Scenario scenario) {
-		if (scenario.isFailed()) {
-			ScreenshotUtility.takeScreenshot(DriverManager.getDriver(), scenario.getName());
-			System.out.println("❌ Test Failed: Screenshot Captured!");
-		}
+		//Initialize driver from driver factory
 
-		DriverManager.quitDriver();
-	}
+		
+//        String browser = System.getProperty("browser");
+//       if (browser == null || browser.isEmpty()) {
+//            browser = ConfigReader.getProperty("browser");
+//       }
+        DriverManager.initializeDriver(browser);
+        System.out.println("browser tyep from hooks:"+browser);
+        DriverManager.getDriver().get(prop.getProperty("baseUrl"));
+    }
+
+    @After(order = 0)
+    public void quitBrowser() {
+        if (DriverManager.getDriver() != null) {
+        	System.out.println("browser quitting");
+            DriverManager.quitDriver();
+        }
+    }
+
+    @After(order = 1)
+    public void tearDown(Scenario scenario) {
+        if (scenario.isFailed()) {
+            ScreenshotUtility.takeScreenshot(DriverManager.getDriver(), scenario.getName());
+            System.out.println("❌ Test Failed: Screenshot Captured!");
+        }
+    }
+	
+	
+	
+//	@Before
+//	public void setup() {
+////    	String browser = ConfigReader.getProperty("browser");
+////		
+////		DriverManager.initializeDriver(browser);
+//		DriverManager.getDriver();
+//	}
+//
+//	@After
+//
+//	public void tearDown(Scenario scenario) {
+//		if (scenario.isFailed()) {
+//			ScreenshotUtility.takeScreenshot(DriverManager.getDriver(), scenario.getName());
+//			System.out.println("❌ Test Failed: Screenshot Captured!");
+//		}
+//
+//		DriverManager.quitDriver();
+//	}
 
 }
