@@ -13,10 +13,7 @@ import utilities.DriverManager;
 
 @CucumberOptions(plugin = { "pretty", "html:target/DsAlgoReports.html","io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 monochrome = true, // console output color
-
-tags="@DataStructuresPage",
-
-
+//tags="@DataStructuresPage",
 features = { "src/test/resources/features" }, // location of feature files
 glue = { "stepDefinitions", "hooks" }
 )
