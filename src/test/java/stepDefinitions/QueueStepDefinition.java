@@ -330,8 +330,8 @@ public class QueueStepDefinition {
 
 	@When("The user clicks Implementation of Queue in Python button")
 	public void the_user_clicks_implementation_of_queue_in_python_button() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+		queuePage.clickImplementationQueuePython();
+		LoggerLoad.info("in implementation of queue in python");
 	}
 
 }
