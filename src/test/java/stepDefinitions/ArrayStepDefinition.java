@@ -629,29 +629,6 @@ public void For_array_the_user_clicks_the_run_button_after_entering_from(Integer
 }
 
 
-
-//@When("For Array the user clicks the Run Button after entering {int} from {string}")
-//public void for_array_the_user_clicks_the_run_button_after_entering_from(Integer RowNumber, String sheet) {
-//	try {
-//
-//		excelUtils = new ExcelReader(ConfigReader.getProperty("excelPath"));
-//	} catch (IOException e) {
-//
-//		e.printStackTrace();
-//	}
-//	sheet = "ArrayQuestions";
-//	String invalidCode = excelUtils.getCellData(sheet, RowNumber - 1, 0);
-//	
-//	stackPage.enterCode(invalidCode);
-//		
-//	stackPage.clickRunButton();
-//	
-//	LoggerLoad.info("user clicked the Run button");
-//
-//}
-//
-
-
 @Then("The user should be redirected back to Data Structure page")
 public void The_user_should_be_redirected_back_to_Data_Structure_page() {
     // Write code here that turns the phrase above into concrete actions
