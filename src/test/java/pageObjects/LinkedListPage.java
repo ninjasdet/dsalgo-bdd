@@ -239,53 +239,6 @@ public class LinkedListPage {
 		    }
 		}
 		
-//		 public void performLogin(String sheetName, int rowNumber) {
-//
-//				try {
-//
-//					excelUtils = new ExcelReader(ConfigReader.getProperty("excelPath"));
-//
-//				} catch (IOException e) {
-//
-//					// TODO Auto-generated catch block
-//
-//					e.printStackTrace();
-//
-//				}
-//		
-//				public void performLogin(String sheetName, int rowNumber) {
-//
-//					try {
-//
-//						excelUtils = new ExcelReader(ConfigReader.getProperty("excelPath"));
-//
-//					} catch (IOException e) {
-//
-//						// TODO Auto-generated catch block
-//
-//						e.printStackTrace();
-//
-//					}
-//
-//					// Fetch username and password from the Excel sheet
-//
-//					String username = excelUtils.getCellData(sheetName, rowNumber - 1, 0); // Column 0 = Username
-//
-//					String password = excelUtils.getCellData(sheetName, rowNumber - 1, 1); // Column 1 = Password
-//
-//					loginPage.enterUsername(username);
-//
-//					loginPage.enterPassword(password);
-//
-//					// Click login button
-//
-//					loginPage.clickLogin();
-//					LoggerLoad.info("login done!");
-//				}
-//		
-//}
-
-
 	
 }	
 
