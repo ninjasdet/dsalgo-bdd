@@ -27,25 +27,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		DriverManager.initializeDriver(browser);
 	}
 	
-	  
-//	// Ensure WebDriver is initialized
-//	DriverManager.getDriver(); // Corrected method
-//	
-//	}
-	//@Optional ("chrome")
-	
-//WebDriver driver;
-//
-//
-//@BeforeClass
-//@Parameters("browser") // Get browser name from TestNG XML
-//public void setup(@Optional("chrome") String browser) throws Exception {
-//
-//  
-//// Ensure WebDriver is initialized
-//DriverManager.getDriver(); // Corrected method
-//
-//}
+
 
 @Override
 @DataProvider(parallel = true)
@@ -54,8 +36,6 @@ public Object[][] scenarios() {
 return super.scenarios();
 }
 
-
-
 }
 
-//@Optional("chrome")
+
