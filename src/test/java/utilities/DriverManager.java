@@ -15,40 +15,24 @@ public class DriverManager {
 			throw new IllegalArgumentException("Browser name must not be null or empty.");
 		}
 
-//		 boolean headless =
-//		 Boolean.parseBoolean(ConfigReader.getProperty("headless"));
-
 		try {
 			switch (browser.toLowerCase()) {
 			case "chrome":
-				// WebDriverManager.chromedriver().setup();
-//				 ChromeOptions chromeOptions = new ChromeOptions();
-//                    if (headless) {
-//                        chromeOptions.addArguments("--headless", "--disable-gpu", "--window-size=1920,1080");
-//                    }
 				tlDriver.set(new ChromeDriver());
 				break;
 			case "firefox":
-				// WebDriverManager.firefoxdriver().setup();
-//                    FirefoxOptions firefoxOptions = new FirefoxOptions();
-//                    if (headless) {
-//                        firefoxOptions.addArguments("--headless", "--disable-gpu", "--window-size=1920,1080");
-//                    }
+				
 				tlDriver.set(new FirefoxDriver());
 				break;
 			case "edge":
-				// WebDriverManager.edgedriver().setup();
-//                    EdgeOptions edgeOptions = new EdgeOptions();
-//                    if (headless) {
-//                        edgeOptions.addArguments("--headless", "--disable-gpu", "--window-size=1920,1080");
-//                    }
 				tlDriver.set(new EdgeDriver());
 				break;
 			default:
 				throw new IllegalArgumentException("Unsupported browser: " + browser);
 			}
 		} catch (Exception e) {
-			System.out.println("Error initializing browser: " + e.getMessage());
+			LoggerLoad.info("Error initializing browser: " + e.getMessage()");
+			
 			throw e;
 		}
 
