@@ -315,20 +315,7 @@ import utilities.LoggerLoad;
 					e.printStackTrace();}
 
 				}
-				
-	    	
-	    	
-	    	
-	    	
-	    	
-	    	
-	    	
-	    	
-	    	
-	    	
-	    	
-	    	
-	    	
+		
 	    	
 	    	
 	    	
@@ -380,25 +367,8 @@ import utilities.LoggerLoad;
 			// TODO Auto-generated method stub
 			return null;
 		}
+	
 
-
-
-		
-		
-//		  public void performLogin(String sheetName, int rowNumber) {
-//
-//				try {
-//
-//					excelUtils = new ExcelReader(ConfigReader.getProperty("excelPath"));
-//
-//				} catch (IOException e) {
-//
-//					// TODO Auto-generated catch block
-//
-//					e.printStackTrace();
-//
-//				}
-//		  }
 	}
 	   
 	   
