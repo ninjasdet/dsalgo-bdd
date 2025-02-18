@@ -47,27 +47,7 @@ public class Hooks {
             ScreenshotUtility.takeScreenshot(DriverManager.getDriver(), scenario.getName());
             System.out.println("❌ Test Failed: Screenshot Captured!");
         }
-    }
-	
-	
-	
-//	@Before
-//	public void setup() {
-////    	String browser = ConfigReader.getProperty("browser");
-////		
-////		DriverManager.initializeDriver(browser);
-//		DriverManager.getDriver();
-//	}
-//
-//	@After
-//
-//	public void tearDown(Scenario scenario) {
-//		if (scenario.isFailed()) {
-//			ScreenshotUtility.takeScreenshot(DriverManager.getDriver(), scenario.getName());
-//			System.out.println("❌ Test Failed: Screenshot Captured!");
-//		}
-//
-//		DriverManager.quitDriver();
-//	}
+   }
+
 
 }
