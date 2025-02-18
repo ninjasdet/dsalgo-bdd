@@ -42,6 +42,3 @@
 
 </suite> 
 
-<!-- parallel="tests" thread-count="3"-->
-<!-- thread-count="3"-->
-<!--parallel="tests" -->
