@@ -9,16 +9,5 @@ package utilities;
 
 public class Helper {
 
-	/*
-	 * WebDriver driver;
-	 * 
-	 * public Helper(WebDriver driver) { this.driver = driver; }
-	 * 
-	 * public void clickElement(WebElement element) { new WebDriverWait(driver,
-	 * Duration.ofSeconds(10))
-	 * .until(ExpectedConditions.elementToBeClickable(element)).click(); }
-	 * 
-	 * public void enterText(WebElement element, String text) { element.clear();
-	 * element.sendKeys(text); }
-	 */
+	
 }

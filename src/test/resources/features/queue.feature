@@ -22,7 +22,7 @@ Feature: Home Navigation
     Given The user is on the Implementation of Queue in Python page
     When The user clicks Try Here button in Implementation of Queue in Python page
     Then The user should be redirected to a page having a try Editor with a Run button to test of Queue
-    
+ 
     Scenario Outline: Output Testing with different sets of invalid data in Implementation of Queue in Python
      Given The user is in the tryEditor page of queue
      When For queue The user clicks the Run button after entering <RowNumber> from "<SheetName>"
@@ -33,7 +33,7 @@ Feature: Home Navigation
 
       | TryEditor  |     2     | 
       | TryEditor  |     3     | 
-     
+  
    Scenario Outline: Output Testing with different sets of valid data Implementation of Queue in Python
      Given The user is in the tryEditor page of queue
      When For queue The user clicks the Run button after entering <RowNumber> from "<SheetName>"

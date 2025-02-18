@@ -9,16 +9,12 @@
         <!-- standard, dark -->
 
         <theme>standard</theme>
-
-   
-
         <!-- document encoding -->
 
         <!-- defaults to UTF-8 -->
 
         <encoding>UTF-8</encoding>
-
-       
+ 
 
         <!-- protocol for script and stylesheets -->
 
