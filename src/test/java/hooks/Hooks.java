@@ -29,14 +29,15 @@ public class Hooks {
 //            browser = ConfigReader.getProperty("browser");
 //       }
         DriverManager.initializeDriver(browser);
-        System.out.println("browser tyep from hooks:"+browser);
+       
         DriverManager.getDriver().get(prop.getProperty("baseUrl"));
     }
 
     @After(order = 0)
     public void quitBrowser() {
         if (DriverManager.getDriver() != null) {
-        	System.out.println("browser quitting");
+		LoggerLoad.info("browser quitting");
+        	
             DriverManager.quitDriver();
         }
     }
@@ -45,7 +46,7 @@ public class Hooks {
     public void tearDown(Scenario scenario) {
         if (scenario.isFailed()) {
             ScreenshotUtility.takeScreenshot(DriverManager.getDriver(), scenario.getName());
-            System.out.println("❌ Test Failed: Screenshot Captured!");
+             LoggerLoad.info("❌ Test Failed: Screenshot Captured!");
         }
    }
 
