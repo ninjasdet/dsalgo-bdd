@@ -5,7 +5,7 @@ Feature: Stack Data Structure Navigation
     Given For stack the user signs in to dsAlgo Portal
     
   Scenario: Verify that user is able to navigate to Stack data structure page
-    Given For stack the user is in the Home page after Sign in
+   # Given For stack the user is in the Home page after Sign in
     When The user clicks the Getting Started button in the Stack Panel Or The user selects the Stack item from the drop-down menu
     Then The user is directed to the Stack Data Structure Page
     
